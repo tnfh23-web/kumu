@@ -1,0 +1,209 @@
+/* 노멀라이즈 시작 */
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 노멀라이즈 끝 */
+
+/* 포인트로 줄 폰트 */
+.point-font {
+  font-family: "TmoneyRoundWind", sans-serif;
+}
+
+/* html 기본 설정 */
+html {
+  font-family: "pretendard", sans-serif;
+  font-size: 62.5%;
+}
+body {
+  background-color: #fdfaf7;
+}
+/* header 시작 */
+
+main {
+  height: 5000px;
+}
+header {
+  background-color: rgba(253, 250, 247, 0.75);
+  backdrop-filter: blur(12px);
+  width: 100%;
+  height: 8rem;
+  font-size: 1.8rem;
+  position: fixed;
+  top: 0;
+  transition: all 0.2s;
+  z-index: 9999;
+}
+header:hover {
+  background-color: #fdfaf7;
+}
+.nav-up {
+  top: -8rem;
+}
+.top-bar {
+  font-weight: 800;
+  box-sizing: border-box;
+  padding: 0 12rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+.language-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  font-size: 1.6rem;
+  border: 1px solid #111111;
+  height: 4rem;
+  width: 10.3rem;
+}
+.language-box a {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+.language-box a i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 2.4rem;
+}
+.top-bar ul {
+  display: flex;
+  gap: 11rem;
+}
+.top-bar ul li {
+  position: relative;
+}
+.top-bar ul li:hover {
+  scale: calc(110%);
+}
+.top-bar ul li ul {
+  padding: 4rem;
+  white-space: nowrap;
+  background-color: #f6f1e9;
+  width: 100%;
+  gap: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 2rem;
+  transition: all 0.3s;
+}
+.top-bar ul li ul li a {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.top-bar ul li:hover ul {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* header 끝 */
+
+/* section-1 시작 */
+
+.section-1 {
+  position: relative;
+  overflow: hidden;
+}
+.section-1 .slider {
+  display: flex;
+  width: 100%;
+  height: 100dvh;
+  position: relative;
+}
+.section-1 .slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.section-1 .slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+.section-1 .img-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.section-1 .img-box .vanner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.section-1 .indicator {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.section-1 .indicator-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #111111;
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+}
+.section-1 .indicator-inner .current,
+.section-1 .indicator-inner .total {
+  width: 100px;
+  text-align: center;
+}
+.section-1 .indicator-inner .progress-bar {
+  min-width: 120px;
+  flex: 1;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+.section-1 .indicator-inner .progress {
+  height: 100%;
+  background: #111111;
+  width: 0%;
+  border-radius: 10px;
+}
+
+.section-1 .indicator-inner .progress.animate {
+  width: 100%;
+  transition: width 3s linear;
+}
