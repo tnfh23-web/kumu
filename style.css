@@ -57,7 +57,7 @@ header:hover {
   top: -8rem;
 }
 .top-bar {
-  font-weight: 800;
+  font-weight: 600;
   box-sizing: border-box;
   padding: 0 12rem;
   height: 100%;
@@ -94,12 +94,17 @@ header:hover {
 .top-bar ul {
   display: flex;
   gap: 11rem;
+  height: 100%;
 }
 .top-bar ul li {
   position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.top-bar ul li:hover {
-  scale: calc(110%);
+.top-bar ul li a:hover {
+  color: #a24c3b;
 }
 .top-bar ul li ul {
   padding: 4rem;
@@ -111,7 +116,7 @@ header:hover {
   pointer-events: none;
   transform: translateX(-50%);
   position: absolute;
-  top: 100%;
+  top: 80%;
   left: 50%;
   display: flex;
   text-align: center;
