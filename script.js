@@ -49,62 +49,16 @@ $(window).scroll(function(){
 });
 */
 
+$(".submenu").stop().hide();
+$("#menu_bg").stop().hide();
+$(".navi>li")
+  .mouseenter(function () {
+    $(".submenu").stop().slideDown(500);
+    $("#menu_bg").stop().slideDown(500);
+  })
+  .mouseleave(function () {
+    $(".submenu").stop().slideUp(500);
+    $("#menu_bg").stop().slideUp(500);
+  });
+
 // ============================
-// Section-1 자동 슬라이더
-// ============================
-
-// 슬라이드 요소
-var slides = $(".section-1 .slide");
-var totalSlides = slides.length;
-
-// 인디케이터 요소
-var currentNum = $(".section-1 .current");
-var totalNum = $(".section-1 .total");
-var progressBar = $(".section-1 .progress");
-
-// 기본값 세팅
-var currentIndex = 0;
-var slideDuration = 3000;
-
-// 총 페이지 수 세팅
-totalNum.text(("0" + totalSlides).slice(-2));
-
-// 첫 슬라이드 표시
-showSlide(0);
-
-// 자동 슬라이드 시작
-setInterval(function () {
-  nextSlide();
-}, slideDuration);
-
-// --------------------------------
-// 함수: 다음 슬라이드 이동
-// --------------------------------
-function nextSlide() {
-  var nextIndex = (currentIndex + 1) % totalSlides;
-  showSlide(nextIndex);
-}
-
-// --------------------------------
-// 함수: 특정 슬라이드 표시
-// --------------------------------
-function showSlide(index) {
-  // 모든 슬라이드 숨기고
-  slides.removeClass("active");
-
-  // 해당 슬라이드 활성화
-  $(slides[index]).addClass("active");
-
-  // 번호 업데이트 (01, 02...)
-  currentNum.text(("0" + (index + 1)).slice(-2));
-
-  // 진행바 애니메이션 초기화
-  progressBar.removeClass("animate");
-  void progressBar[0].offsetWidth; // 리플로우 강제 → 애니메이션 재시작
-
-  // 다시 애니메이션 시작
-  progressBar.addClass("animate");
-
-  // 현재 인덱스 갱신
-  currentIndex = index;
-}
