@@ -21,7 +21,7 @@ setInterval(function () {
 function hasScrolled() {
   var st = $(this).scrollTop();
 
-  // 🔥 화면 위쪽에서는 헤더 숨김 꺼버림
+  //  화면 위쪽에서는 헤더 숨김 꺼버림
   if (st < 150) {
     $("header").removeClass("nav-up").addClass("nav-down");
     lastScrollTop = st;

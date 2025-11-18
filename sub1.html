@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kumu</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- 폰트어썸 불러오기 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    <!-- aos  -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- 스와이퍼 라이브러리 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  </head>
+  <body>
+    <header class="nav-down point-font">
+      <div id="menu_bg"></div>
+      <div class="top-bar">
+        <div class="logo-box"><img src="img/header/logo.png" alt="" /></div>
+        <nav class="menu">
+          <ul class="navi">
+            <li>
+              <a href="#"><span>브랜드</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#"><span>브랜드 스토리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>공간소개</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><span>메뉴</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#"><span>전체 상품</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>NEW</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>BEST</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>굿즈</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><span>쿠무 소식</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#"><span>시즌</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>클래스</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>이벤트</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><span>고객지원</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#"><span>매장 안내</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>오시는 길</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>클래스 예약</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>FAQ</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div class="language-box">
+          <a href="#">KO<i class="fa-solid fa-globe"></i></a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="sub-section">
+          <div class="sub-title">
+            <h2 class="point-font">CLASS</h2>
+            <p>쿠무에서 특별한 하루를 만드는 시간</p>
+          </div>
+          <form action="">
+            <div class="sub-full-box">
+              <div class="sub-first-box">
+                <div class="sub-left-box">
+                  <div class="sub-left-box-list sub-left-box-list-1">
+                    <div class="text-img-box">
+                      <img src="img/sub-img/sub-img-svg.svg" alt="" />
+                      <h2>신청자명</h2>
+                    </div>
+                    <input class="sub-text-1" type="text" placeholder="클래스 신청자 이름을 적어주세요." />
+                  </div>
+                  <div class="sub-left-box-list sub-left-box-list-2">
+                    <div class="text-img-box">
+                      <img src="img/sub-img/sub-img-svg.svg" alt="" />
+                      <h2>휴대폰 번호</h2>
+                    </div>
+                    <input class="sub-text-1" type="text" placeholder="연락받을 휴대폰 번호를 적어주세요." />
+                  </div>
+                  <div class="sub-left-box-list sub-left-box-list-3">
+                    <div class="text-img-box">
+                      <img src="img/sub-img/sub-img-svg.svg" alt="" />
+                      <h2>이메일</h2>
+                    </div>
+                    <input class="sub-text-1" type="text" placeholder="소식을 받을 이메일을 적어주세요." />
+                  </div>
+                  <div class="sub-left-box-list sub-left-box-list-4">
+                    <div class="text-img-box">
+                      <img src="img/sub-img/sub-img-svg.svg" alt="" />
+                      <h2>연락 선호 수단</h2>
+                    </div>
+                    <label>
+                      <input class="sub-text-2" type="checkbox" />
+                      <span>전화</span>
+                    </label>
+                    <label>
+                      <input class="sub-text-2" type="checkbox" />
+                      <span>문자</span>
+                    </label>
+                    <label>
+                      <input class="sub-text-2" type="checkbox" />
+                      <span>이메일</span>
+                    </label>
+                  </div>
+                  <div class="sub-left-box-list sub-left-box-list-5">
+                    <div class="text-img-box">
+                      <img src="img/sub-img/sub-img-svg.svg" alt="" />
+                      <h2>강아지 성격</h2>
+                    </div>
+                    <textarea class="textarea-1" placeholder="낯가림, 에너지 등 강아지 성격을 간단히 적어주세요." cols="30" rows="10"></textarea>
+                  </div>
+                </div>
+                <div class="sub-right-box">
+                  <div class="sub-right-box-list sub-right-box-list-1">
+                    <div class="text-img-box">
+                      <img src="img/sub-img/sub-img-svg.svg" alt="" />
+                      <h2>신청 클래스명</h2>
+                    </div>
+                    <input class="sub-text-1" type="text" placeholder="클래스 신청자 이름을 적어주세요." />
+                  </div>
+                  <div class="sub-right-box-list sub-right-box-list-2">
+                    <div class="text-img-box">
+                      <img src="img/sub-img/sub-img-svg.svg" alt="" />
+                      <h2>희망 날짜</h2>
+                    </div>
+                    <input class="sub-text-1" type="text" placeholder="클래스 신청자 이름을 적어주세요." />
+                  </div>
+                  <div class="sub-right-box-list sub-right-box-list-3">
+                    <div class="text-img-box">
+                      <img src="img/sub-img/sub-img-svg.svg" alt="" />
+                      <h2>희망 시간대</h2>
+                    </div>
+                    <input class="sub-text-1" type="text" placeholder="참여 희망 시간대를 적어주세요." />
+                  </div>
+                  <div class="sub-right-box-list sub-right-box-list-4">
+                    <div class="text-img-box">
+                      <img src="img/sub-img/sub-img-svg.svg" alt="" />
+                      <h2>베이킹 경험</h2>
+                    </div>
+                    <label>
+                      <input class="sub-text-2" type="checkbox" />
+                      <span>처음</span>
+                    </label>
+                    <label>
+                      <input class="sub-text-2" type="checkbox" />
+                      <span>자주</span>
+                    </label>
+                    <label>
+                      <input class="sub-text-2" type="checkbox" />
+                      <span>가끔</span>
+                    </label>
+                  </div>
+                  <div class="sub-right-box-list sub-right-box-list-5">
+                    <div class="text-img-box">
+                      <img src="img/sub-img/sub-img-svg.svg" alt="" />
+                      <h2>특이사항</h2>
+                    </div>
+                    <textarea class="textarea-1" placeholder="알레르기, 식단 제한 음식이 있다면 적어주세요." cols="30" rows="10"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="sub-last-box">
+                <h2 class="last-box-title">개인정보 수집·이용동의 안내</h2>
+                <textarea class="textarea-2" placeholder="개인정보 수집·이용동의 안내" cols="30" rows="10">개인정보</textarea>
+                <div class="last-box-button">
+                  <h2>개인정보 수집·이용에 동의합니다.</h2>
+                  <label>
+                    <input class="sub-lst-text-2" type="checkbox" />
+                    <span>동의</span>
+                  </label>
+                  <label>
+                    <input class="sub-last-text-2" type="checkbox" />
+                    <span>비동의</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="sub-button-box">
+              <div class="sub-button">
+                <a href="#"><img src="img/sub-img/sub-button.svg" alt="" /><span>예약하기</span></a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-logo-box">
+        <img src="img/footer/footer-logo.png" alt="" />
+      </div>
+      <div class="footer-text-box">
+        <div class="footer-title-box">
+          <p>쿠무카페</p>
+        </div>
+        <div class="footer-middle-box">
+          <p>서울특별시 크림구 챕터로 12, 1층 (쿠무동)</p>
+          <p>매장 번호 02-1234-5678 / 사업자 등록 번호 000-00-00000</p>
+          <p>평일 10:00-21:00 / 주말 10:00-22:00</p>
+          <p>hello@Kumucafe.com</p>
+        </div>
+        <div class="icon-box">
+          <a href="#"><i class="fa-brands fa-kakao-talk"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </footer>
+    <!-- aos js -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- aos 자바 -->
+    <script>
+      AOS.init();
+    </script>
+    <!-- 스와이퍼 js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- 제이쿼리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- 자바 불러오기 -->
+    <script src="script.js"></script>
+  </body>
+</html>
