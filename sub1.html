@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>kumu</title>
-    <link rel="stylesheet" href="style.css" />
+
     <!-- 폰트어썸 불러오기 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
@@ -12,6 +12,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- 스와이퍼 라이브러리 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="nav-down point-font">
@@ -171,16 +172,16 @@
                       <img src="img/sub-img/sub-img-svg.svg" alt="" />
                       <h2>베이킹 경험</h2>
                     </div>
-                    <label>
-                      <input class="sub-text-2" type="checkbox" />
+                    <label id="BEF">
+                      <input id="BEF" type="radio" name="BE" />
                       <span>처음</span>
                     </label>
-                    <label>
-                      <input class="sub-text-2" type="checkbox" />
+                    <label id="BEO">
+                      <input id="BEO" type="radio" name="BE" />
                       <span>자주</span>
                     </label>
-                    <label>
-                      <input class="sub-text-2" type="checkbox" />
+                    <label id="BES">
+                      <input id="BES" type="radio" name="BE" />
                       <span>가끔</span>
                     </label>
                   </div>
@@ -198,12 +199,12 @@
                 <textarea class="textarea-2" placeholder="개인정보 수집·이용동의 안내" cols="30" rows="10">개인정보</textarea>
                 <div class="last-box-button">
                   <h2>개인정보 수집·이용에 동의합니다.</h2>
-                  <label>
-                    <input class="sub-lst-text-2" type="checkbox" />
+                  <label for="PIItrue">
+                    <input type="radio" name="수집동의" id="PIItrue" />
                     <span>동의</span>
                   </label>
-                  <label>
-                    <input class="sub-last-text-2" type="checkbox" />
+                  <label for="PIIfalse">
+                    <input type="radio" name="수집동의" id="PIIfalse" />
                     <span>비동의</span>
                   </label>
                 </div>
