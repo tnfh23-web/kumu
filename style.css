@@ -49,10 +49,6 @@ header {
   transition: all 0.2s;
   z-index: 9999;
   background-color: #fff;
-  opacity: 0.8;
-}
-.nav-up {
-  top: -8rem;
 }
 .top-bar {
   box-sizing: border-box;
@@ -303,9 +299,13 @@ form .textarea-2 {
 #BEO,
 #BES,
 #PIT,
-#PIF {
+#PIF,
+#PH,
+#ME,
+#MA {
   display: flex;
   align-items: center;
+  text-align: center;
   gap: 1.3rem;
 }
 input[type="radio"] {
@@ -322,10 +322,34 @@ input[type="radio"] {
 .sub-right-box-list-4 span,
 .sub-left-box-list-4 span,
 .sub-last-box span {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 500;
   text-align: center;
 }
+.last-text-box {
+  background-color: #fff;
+  padding: 3rem 4rem;
+  border-radius: 2.5rem;
+}
+.last-text-box > h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.last-text-box li span {
+  display: inline;
+}
+
+.last-text-box ol,
+.last-text-box ul,
+.last-text-box li {
+  list-style: revert;
+  font-size: 1.6rem;
+}
+
+.last-text-box ul {
+  padding-bottom: 2rem;
+}
+/* 서브 끝 */
 footer {
   border-radius: 10rem 10rem 0 0;
   background-color: #8f6047;
