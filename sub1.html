@@ -124,18 +124,20 @@
                       <img src="img/sub-img/sub-img-svg.svg" alt="" />
                       <h2>연락 선호 수단</h2>
                     </div>
-                    <label>
-                      <input class="sub-text-2" type="checkbox" />
-                      <span>전화</span>
-                    </label>
-                    <label>
-                      <input class="sub-text-2" type="checkbox" />
-                      <span>문자</span>
-                    </label>
-                    <label>
-                      <input class="sub-text-2" type="checkbox" />
-                      <span>이메일</span>
-                    </label>
+                    <div class="ph-box">
+                      <label id="PH">
+                        <input id="PH" type="radio" name="CALL" />
+                        <span>전화</span>
+                      </label>
+                      <label id="me">
+                        <input id="me" type="radio" name="CALL" />
+                        <span>문자</span>
+                      </label>
+                      <label id="MA">
+                        <input id="MA" type="radio" name="CALL" />
+                        <span>이메일</span>
+                      </label>
+                    </div>
                   </div>
                   <div class="sub-left-box-list sub-left-box-list-5">
                     <div class="text-img-box">
@@ -172,18 +174,20 @@
                       <img src="img/sub-img/sub-img-svg.svg" alt="" />
                       <h2>베이킹 경험</h2>
                     </div>
-                    <label id="BEF">
-                      <input id="BEF" type="radio" name="BE" />
-                      <span>처음</span>
-                    </label>
-                    <label id="BEO">
-                      <input id="BEO" type="radio" name="BE" />
-                      <span>자주</span>
-                    </label>
-                    <label id="BES">
-                      <input id="BES" type="radio" name="BE" />
-                      <span>가끔</span>
-                    </label>
+                    <div class="be-box">
+                      <label id="BEF">
+                        <input id="BEF" type="radio" name="BE" />
+                        <span>처음</span>
+                      </label>
+                      <label id="BEO">
+                        <input id="BEO" type="radio" name="BE" />
+                        <span>자주</span>
+                      </label>
+                      <label id="BES">
+                        <input id="BES" type="radio" name="BE" />
+                        <span>가끔</span>
+                      </label>
+                    </div>
                   </div>
                   <div class="sub-right-box-list sub-right-box-list-5">
                     <div class="text-img-box">
@@ -199,11 +203,11 @@
                 <textarea class="textarea-2" placeholder="개인정보 수집·이용동의 안내" cols="30" rows="10">개인정보</textarea>
                 <div class="last-box-button">
                   <h2>개인정보 수집·이용에 동의합니다.</h2>
-                  <label for="PIItrue">
+                  <label id="PIT" for="PIItrue">
                     <input type="radio" name="수집동의" id="PIItrue" />
                     <span>동의</span>
                   </label>
-                  <label for="PIIfalse">
+                  <label id="PIF" for="PIIfalse">
                     <input type="radio" name="수집동의" id="PIIfalse" />
                     <span>비동의</span>
                   </label>

@@ -49,16 +49,17 @@ $(window).scroll(function(){
 });
 */
 
-$(".submenu").stop().hide();
-$("#menu_bg").stop().hide();
+$(".submenu").hide();
+$("#menu_bg").hide();
+
 $(".navi>li")
   .mouseenter(function () {
-    $(".submenu").stop().slideDown(500);
-    $("#menu_bg").stop().slideDown(500);
+    $(".submenu").stop().fadeIn(300);
+    $("#menu_bg").stop().fadeIn(300);
   })
   .mouseleave(function () {
-    $(".submenu").stop().slideUp(500);
-    $("#menu_bg").stop().slideUp(500);
+    $(".submenu").stop().fadeOut(300);
+    $("#menu_bg").stop().fadeOut(300);
   });
 
 // ============================
