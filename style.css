@@ -23,7 +23,7 @@ a {
 
 /* 포인트로 줄 폰트 */
 .point-font {
-  font-family: "TmoneyRoundWind", sans-serif;
+  font-family: "Jalnan 2", sans-serif;
 }
 
 /* html 기본 설정 */
@@ -129,7 +129,6 @@ header {
   top: 9rem;
   left: 50%;
   white-space: nowrap;
-  background-color: #fff;
   transform: translateX(-50%);
   height: 18.6rem;
 }
@@ -149,7 +148,7 @@ header {
 /* 서브 시작 */
 
 .sub-section {
-  padding-bottom: 21rem;
+  padding-bottom: 20rem;
   width: 100%;
   max-width: 168rem;
   margin: 0 auto;
@@ -207,10 +206,10 @@ header {
 .sub-left-box-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 .sub-left-box-list h2 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 2rem;
 }
 .sub-right-box {
@@ -270,7 +269,7 @@ form .textarea-1::placeholder {
 .sub-last-box .last-box-title {
   padding-left: 2rem;
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 .last-box-button {
   display: flex;
@@ -319,8 +318,8 @@ form .textarea-2 {
   gap: 1.3rem;
 }
 input[type="radio"] {
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2.4rem;
+  height: 2.4rem;
   appearance: none;
   border-radius: 100%;
   box-sizing: border-box;
@@ -348,11 +347,12 @@ input[type="radio"] {
 .sub-right-box-list-4 span,
 .sub-left-box-list-4 span,
 .sub-last-box span {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 500;
   text-align: center;
 }
 .last-text-box {
+  color: #969696;
   background-color: #fff;
   padding: 3rem 4rem;
   border-radius: 2.5rem;
@@ -361,7 +361,11 @@ input[type="radio"] {
   font-size: 1.4rem;
   font-weight: 500;
 }
+.last-text-box > ol > li > ul {
+  padding-left: 3rem;
+}
 .last-text-box li span {
+  line-height: 2.3rem;
   display: inline;
 }
 
