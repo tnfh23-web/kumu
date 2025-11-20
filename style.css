@@ -37,9 +37,6 @@ body {
 }
 /* header 시작 */
 
-main {
-  height: 5000px;
-}
 header {
   width: 100%;
   height: 8rem;
@@ -92,15 +89,6 @@ header {
   display: flex;
   gap: 1rem;
   color: #ad7252;
-}
-.language-box a i {
-  color: #ad7252;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
-  font-size: 2.4rem;
 }
 .top-bar nav > ul {
   display: flex;
@@ -161,12 +149,16 @@ header {
 /* 서브 시작 */
 
 .sub-section {
+  padding-bottom: 21rem;
   width: 100%;
   max-width: 168rem;
   margin: 0 auto;
 }
 
 .sub-full-box {
+  border-radius: 3rem;
+  padding: 10rem 14.2rem;
+  background-color: #f6f1e9;
   width: 100%;
   max-width: 139.5rem;
   margin: 0 auto;
@@ -327,6 +319,7 @@ input[type="radio"] {
   border-radius: 100%;
   box-sizing: border-box;
   border: 1px solid gray;
+  background-color: #fff;
   cursor: pointer;
 }
 [type="radio"]:checked {
