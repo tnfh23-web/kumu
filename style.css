@@ -254,6 +254,12 @@ form .textarea-1 {
   padding: 2rem;
   border: 0;
 }
+form .textarea-1::placeholder {
+  font-family: "pretendard", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #a5a5a5;
+}
 .sub-last-box {
   padding-top: 6rem;
   display: flex;
@@ -325,6 +331,13 @@ input[type="radio"] {
 [type="radio"]:checked {
   border: 1rem solid #a24c3b;
 }
+
+.sub-text-1::placeholder {
+  font-family: "pretendard", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #a5a5a5;
+}
 .sub-right-box-list-4 .be-box,
 .sub-left-box-list-4 .ph-box {
   display: flex;
@@ -335,7 +348,7 @@ input[type="radio"] {
 .sub-right-box-list-4 span,
 .sub-left-box-list-4 span,
 .sub-last-box span {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 500;
   text-align: center;
 }
@@ -345,7 +358,7 @@ input[type="radio"] {
   border-radius: 2.5rem;
 }
 .last-text-box > h2 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 500;
 }
 .last-text-box li span {
@@ -356,7 +369,7 @@ input[type="radio"] {
 .last-text-box ul,
 .last-text-box li {
   list-style: revert;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .last-text-box ul {
