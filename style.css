@@ -189,7 +189,7 @@ header {
   gap: 6.5rem;
 }
 .sub-left-box {
-  flex: 1 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 6rem;
@@ -213,7 +213,7 @@ header {
   font-size: 2rem;
 }
 .sub-right-box {
-  flex: 1 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 6rem;
@@ -230,7 +230,7 @@ header {
 .sub-right-box-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 .sub-right-box-list h2 {
   font-weight: 500;
