@@ -317,7 +317,7 @@ form .textarea-2 {
 .sub-button-box .hover-img {
   opacity: 0;
   position: absolute;
-  top: -9px;
+  top: -3px;
   left: 1px;
   transform: scaleY(0.4);
   transition: transform 0.3s, opacity 0.2s 0.1s;
