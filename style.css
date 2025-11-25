@@ -298,8 +298,6 @@ form .textarea-2 {
 }
 .sub-button-box > .sub-button {
   position: relative;
-  width: 15.1rem;
-  height: 6.8rem;
 }
 .sub-button span {
   display: block;
@@ -425,4 +423,89 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+/* 768 반응형 */
+
+@media (max-width: 768px) {
+  .sub-first-box {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .sub-left-box,
+  .sub-right-box {
+    width: 100%;
+    gap: 4rem;
+  }
+
+  .text-img-box h2 {
+    font-size: 18px;
+  }
+  .sub-left-box img {
+    width: 34px;
+    height: 18px;
+  }
+  .sub-left-box-list {
+    gap: 10px;
+  }
+  .sub-text-1 {
+    font-size: 14px;
+    height: 20px;
+  }
+  .sub-text-1::placeholder {
+    font-family: "pretendard", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #a5a5a5;
+  }
+
+  textarea.textarea-1 {
+    font-size: 14px;
+  }
+
+  /* ----- 라디오 버튼 ----- */
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+  .ph-box,
+  .be-box {
+    gap: 20px;
+  }
+
+  /* ----- 개인정보 박스 ----- */
+  .last-text-box {
+    padding: 20px;
+    border-radius: 16px;
+  }
+  .last-text-box > h2 {
+    font-size: 14px;
+  }
+  .last-text-box ol,
+  .last-text-box ul,
+  .last-text-box li {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .last-text-box > ol > li > ul {
+    padding-left: 16px;
+  }
+
+  /* ----- 동의 라디오 영역 ----- */
+  .last-box-button {
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .last-box-button h2 {
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .sub-button span {
+    font-size: 16px;
+  }
 }
