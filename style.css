@@ -428,6 +428,9 @@ footer {
 /* 768 반응형 */
 
 @media (max-width: 768px) {
+  html {
+    font-size: 10px;
+  }
   .sub-first-box {
     flex-direction: column;
     gap: 4rem;
@@ -449,9 +452,11 @@ footer {
   .sub-left-box-list {
     gap: 10px;
   }
-  .sub-text-1 {
+
+  form .sub-text-1 {
+    display: block;
     font-size: 14px;
-    height: 20px;
+    height: 36px;
   }
   .sub-text-1::placeholder {
     font-family: "pretendard", sans-serif;
@@ -468,6 +473,9 @@ footer {
   input[type="radio"] {
     width: 20px;
     height: 20px;
+  }
+  [type="radio"]:checked {
+    border: 5px solid #a24c3b;
   }
   .ph-box,
   .be-box {
@@ -507,5 +515,8 @@ footer {
 
   .sub-button span {
     font-size: 16px;
+  }
+  .sub-full-box {
+    padding: 24px;
   }
 }
