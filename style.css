@@ -1,3 +1,75 @@
+/* 프리텐다드 폰트  */
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-display: swap;
+}
+
+/* 잘난체 폰트 */
+@font-face {
+  font-family: "YeogiOttaeJalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
 /* 노멀라이즈 시작 */
 
 html,
@@ -24,7 +96,7 @@ a {
 
 /* 포인트로 줄 폰트 */
 .point-font {
-  font-family: "Jalnan 2", sans-serif;
+  font-family: "YeogiOttaeJalnan", sans-serif;
 }
 img {
   display: block;
@@ -102,9 +174,6 @@ body {
   justify-content: space-between;
   height: 100%;
 }
-.top-bar > ul > li > a > span:hover {
-  font-weight: 600;
-}
 .top-bar ul li {
   position: relative;
   display: flex;
@@ -123,9 +192,6 @@ body {
   padding: 1rem;
   color: #ad7252;
   font-weight: 500;
-}
-.top-bar ul li a:hover {
-  font-weight: 600;
 }
 .top-bar ul li ul {
   display: flex;
@@ -436,7 +502,7 @@ footer {
 }
 .footer-middle-box {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.5rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -550,10 +616,6 @@ footer {
     font-size: 1.6rem;
     color: #ad7252;
     font-weight: 500;
-  }
-
-  .sidebar-menu-list a:hover {
-    font-weight: 700;
   }
 
   .sidebar-close {
