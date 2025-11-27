@@ -9,7 +9,8 @@ h4,
 h5,
 h6,
 ul,
-li {
+li,
+p {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -33,15 +34,17 @@ img {
 /* html 기본 설정 */
 html {
   font-family: "pretendard", sans-serif;
-  font-size: 0.52083333vw;
+  font-size: 62.5%;
 }
 body {
   background-color: #fdfaf7;
   color: #111111;
 }
 /* header 시작 */
-
-header {
+.mobile-header {
+  display: none;
+}
+.header {
   width: 100%;
   height: 8rem;
   font-size: 1.8rem;
@@ -146,7 +149,10 @@ header {
   opacity: 1;
   pointer-events: auto;
 } */
-
+.sidebar-menu {
+  opacity: 0;
+  visibility: hidden;
+}
 /* header 끝 */
 
 /* 서브 시작 */
@@ -402,7 +408,10 @@ input[type="radio"] {
   padding-bottom: 2rem;
 }
 /* 서브 끝 */
+
+/* 풋터 시작 */
 footer {
+  color: #f2ebe1;
   border-radius: 10rem 10rem 0 0;
   background-color: #8f6047;
   display: flex;
@@ -410,6 +419,7 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 5rem;
 }
 .footer-text-box {
   display: flex;
@@ -417,19 +427,159 @@ footer {
   align-items: center;
   flex-direction: column;
 }
+.footer-title-box {
+  padding-bottom: 1.6rem;
+}
+.footer-title-box p {
+  font-size: 2rem;
+  font-weight: 600;
+}
 .footer-middle-box {
   display: flex;
   gap: 0.4rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-size: 1.6rem;
 }
-
+.icon-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.6rem;
+}
+.icon-box .fa-kakao-talk {
+  font-size: 2rem;
+}
+.icon-box .fa-instagram {
+  font-size: 2.5rem;
+}
+.footer-last-box {
+  padding-top: 2rem;
+}
+.footer-last-box p {
+  font-size: 1.6rem;
+}
 /* 768 반응형 */
 
 @media (max-width: 768px) {
   html {
     font-size: 10px;
+  }
+
+  .header {
+    display: none;
+  }
+  .mobile-header {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8rem;
+    background-color: #fff;
+    z-index: 99999;
+  }
+  .mobile-header .top-bar {
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+
+  .sidebar-menu {
+    font-family: "Jalnan 2", sans-serif;
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100%;
+    background-color: #fdfaf7;
+    z-index: 99999;
+    transition: all 0.4s;
+    padding: 3rem 2rem;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebar-menu.active {
+    left: 0;
+  }
+
+  .sidebar-menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+  }
+  .sidebar-menu-button span {
+    display: block;
+    height: 3px;
+    background-color: #ad7252;
+  }
+
+  .sidebar-menu-list-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  .sidebar-menu-list > a {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ad7252;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #ad7252;
+  }
+
+  .sidebar-menu-list-1-sub {
+    padding-top: 1.2rem;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .sidebar-menu-list-1-sub li a {
+    font-size: 1.6rem;
+    color: #ad7252;
+    font-weight: 500;
+  }
+
+  .sidebar-menu-list a:hover {
+    font-weight: 700;
+  }
+
+  .sidebar-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+  }
+
+  .sidebar-close span {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #ad7252;
+    top: 50%;
+    left: 0;
+  }
+
+  .sidebar-close span:first-child {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .sidebar-close span:last-child {
+    transform: translateY(-50%) rotate(-45deg);
   }
   .sub-first-box {
     flex-direction: column;
@@ -475,14 +625,13 @@ footer {
     height: 20px;
   }
   [type="radio"]:checked {
-    border: 5px solid #a24c3b;
+    border: 7px solid #a24c3b;
   }
   .ph-box,
   .be-box {
     gap: 20px;
   }
 
-  /* ----- 개인정보 박스 ----- */
   .last-text-box {
     padding: 20px;
     border-radius: 16px;
@@ -501,7 +650,6 @@ footer {
     padding-left: 16px;
   }
 
-  /* ----- 동의 라디오 영역 ----- */
   .last-box-button {
     justify-content: center;
     gap: 14px;
