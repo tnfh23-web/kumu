@@ -116,6 +116,24 @@ body {
 .mobile-header {
   display: none;
 }
+.dim-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.dim-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 .header {
   width: 100%;
   height: 8rem;
@@ -234,7 +252,6 @@ body {
   border-radius: 3rem;
   padding: 10rem 14.2rem;
   background-color: #f6f1e9;
-  max-width: 100%;
   max-width: 139.5rem;
   margin: 0 auto;
 }
@@ -272,6 +289,7 @@ body {
 }
 .sub-left-box-list .text-img-box {
   display: flex;
+  align-items: center;
   gap: 1rem;
   padding-left: 2rem;
 }
@@ -296,6 +314,7 @@ body {
 }
 .sub-right-box-list .text-img-box {
   display: flex;
+  align-items: center;
   gap: 1rem;
   padding-left: 2rem;
 }
@@ -309,7 +328,7 @@ body {
   gap: 1rem;
 }
 .sub-right-box-list h2 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 2rem;
 }
 form .sub-text-1 {
@@ -422,7 +441,7 @@ input[type="radio"] {
   cursor: pointer;
 }
 [type="radio"]:checked {
-  border: 1rem solid #a24c3b;
+  border: 0.8rem solid #a24c3b;
 }
 
 .sub-text-1::placeholder {
@@ -562,7 +581,7 @@ footer {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 80%;
+    width: 50%;
     height: 100%;
     background-color: #fdfaf7;
     z-index: 99999;
@@ -592,7 +611,7 @@ footer {
   .sidebar-menu-list-box {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 4rem;
   }
 
   .sidebar-menu-list > a {
@@ -613,11 +632,14 @@ footer {
   }
 
   .sidebar-menu-list-1-sub li a {
-    font-size: 1.6rem;
+    font-family: "pretendard", sans-serif;
+    font-size: 1.8rem;
     color: #ad7252;
-    font-weight: 500;
+    font-weight: 700;
   }
-
+  .sidebar-menu-list-1-sub li a:hover {
+    font-weight: 800;
+  }
   .sidebar-close {
     position: absolute;
     top: 2rem;
@@ -668,7 +690,7 @@ footer {
   form .sub-text-1 {
     display: block;
     font-size: 14px;
-    height: 36px;
+    height: 60px;
   }
   .sub-text-1::placeholder {
     font-family: "pretendard", sans-serif;
@@ -728,5 +750,77 @@ footer {
   }
   .sub-full-box {
     padding: 24px;
+  }
+}
+
+/* 반응형 768 끝 */
+
+/* 반응형 375 시작 */
+
+@media (max-width: 375px) {
+  .sub-title {
+    padding: 10rem 0;
+  }
+  .sub-title > h2 {
+    font-weight: 800;
+    font-size: 4.5rem;
+  }
+  .sub-title > p {
+    font-weight: 500;
+    font-size: 2rem;
+  }
+  #BEF,
+  #BEO,
+  #BES,
+  #PIT,
+  #PIF,
+  #PH,
+  #ME,
+  #MA {
+    gap: 1rem;
+  }
+  .sub-right-box-list-4 .be-box,
+  .sub-left-box-list-4 .ph-box {
+    gap: 1.2rem;
+  }
+  form .sub-text-1 {
+    height: 50px;
+  }
+  footer {
+    padding: 3rem 2rem 4rem;
+    border-radius: 4rem 4rem 0 0;
+    gap: 2.4rem;
+  }
+
+  .footer-logo-box img {
+    width: 140px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .footer-text-box {
+    text-align: center;
+  }
+
+  .footer-title-box p {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-middle-box {
+    font-size: 1.3rem;
+    gap: 0.4rem;
+  }
+
+  .icon-box .fa-kakao-talk {
+    font-size: 2.2rem;
+  }
+  .icon-box .fa-instagram {
+    font-size: 2.4rem;
+  }
+
+  .footer-last-box p {
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
   }
 }

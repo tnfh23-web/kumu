@@ -16,14 +16,18 @@ $(".navi>li")
 function mobiletopbar_init() {
   $(".sidebar-menu-button").click(function () {
     $(".sidebar-menu").addClass("active");
+    $(".dim-overlay").addClass("active");
   });
 }
+
 $(".sidebar-close").click(function () {
   $(".sidebar-menu").removeClass("active");
+  $(".dim-overlay").removeClass("active");
 });
 
-function mobilesidebar_init() {}
+$(".dim-overlay").click(function () {
+  $(".sidebar-menu").removeClass("active");
+  $(".dim-overlay").removeClass("active");
+});
 
 mobiletopbar_init();
-
-mobilesidebar_init();
