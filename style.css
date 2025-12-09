@@ -361,6 +361,20 @@ form .textarea-1::placeholder {
   flex-direction: column;
   gap: 2rem;
 }
+.sub-last-box .plus-button {
+  width: 100%;
+  height: 4rem;
+  background-color: #fdfaf7;
+  color: #ad7252;
+  border-radius: 1.2rem;
+  text-align: center;
+  line-height: 4rem;
+  font-family: "Pretendard", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  cursor: pointer;
+}
 .sub-last-box .last-box-title {
   padding-left: 2rem;
   font-size: 2rem;
@@ -573,25 +587,28 @@ footer {
     justify-content: space-between;
     padding: 0 2rem;
   }
-
   .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     font-family: "Jalnan 2", sans-serif;
     opacity: 1;
     visibility: visible;
     position: fixed;
     top: 0;
-    left: -100%;
+    right: -100%;
     width: 50%;
     height: 100%;
     background-color: #fdfaf7;
     z-index: 99999;
     transition: all 0.4s;
-    padding: 3rem 2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
   }
 
   .sidebar-menu.active {
-    left: 0;
+    right: 0;
   }
 
   .sidebar-menu-button {
@@ -612,6 +629,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    padding-top: 12rem;
   }
 
   .sidebar-menu-list > a {
@@ -665,6 +683,18 @@ footer {
   .sidebar-close span:last-child {
     transform: translateY(-50%) rotate(-45deg);
   }
+  .sidebar-menu-list-1-sub {
+    display: none;
+  }
+  .sidebar-menu .text-box {
+    display: flex;
+    font-family: "pretendard", sans-serif;
+    gap: 1rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #ad7252;
+    padding-bottom: 10rem;
+  }
   .sub-first-box {
     flex-direction: column;
     gap: 4rem;
@@ -692,13 +722,6 @@ footer {
     font-size: 14px;
     height: 60px;
   }
-  .sub-text-1::placeholder {
-    font-family: "pretendard", sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    color: #a5a5a5;
-  }
-
   textarea.textarea-1 {
     font-size: 14px;
   }
@@ -785,6 +808,20 @@ footer {
   }
   form .sub-text-1 {
     height: 50px;
+  }
+  .last-text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+  .sub-last-box > .last-text-box > ol {
+    display: none;
+  }
+  .sub-last-box > .last-text-box > ol.active {
+    display: block;
+  }
+  .sub-last-box .plus-button {
+    display: block;
   }
   footer {
     padding: 3rem 2rem 4rem;
