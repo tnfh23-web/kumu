@@ -1,0 +1,10 @@
+:root {
+  /* color */
+  --main-background: #fdfaf7;
+  --point-text: #ac753e;
+  --text-color: #111111;
+
+  /* grid */
+
+  --maxwidth: 150rem;
+}
