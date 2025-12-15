@@ -294,7 +294,70 @@ body {
   gap: 1.6rem;
   font-size: 1.8rem;
 }
-
+.section-2 .tab-box-container {
+  display: flex;
+  justify-content: space-between;
+}
+.section-2 .tab-box-container .left-space {
+  width: 14.1rem;
+}
+.section-2 .sec-2-button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sec-2-button-box > .sec-2-button {
+  position: relative;
+}
+.sec-2-button span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 2rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.sec-2-button:hover span {
+  color: #f4ede4;
+}
+.sec-2-button .hover-img {
+  opacity: 0;
+  position: absolute;
+  top: -10px;
+  left: 1px;
+  transform: scaleY(0.4);
+  transition: transform 0.3s, opacity 0.2s 0.1s;
+  transform-origin: top;
+}
+.sec-2-button:hover .hover-img {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: transform 0.3s;
+}
+.section-2 .tab-box-1__item a {
+  position: relative;
+}
+.section-2 .tab-box-1__item a img {
+  opacity: 0;
+  visibility: hidden;
+}
+.section-2 .tab-box-1__item a img.active {
+  display: block;
+}
+.section-2 .tab-box-1__item span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
+.section-2 .tab-box-1__item span.active {
+  color: #f4ede4;
+}
 /* 섹션 2 끝 */
 /* 섹션 3 시작 */
 .section-3 {
@@ -303,6 +366,10 @@ body {
 .section-3-box {
   display: flex;
   gap: 2rem;
+}
+.section-3 .left-content {
+  width: 102rem;
+  height: 96.2rem;
 }
 .section-3 .right-content {
   display: flex;
@@ -340,7 +407,7 @@ body {
 }
 .section-3 .right-card-1 .right-card-1-text-2 {
   font-size: 1.4rem;
-  font: 500;
+  font-weight: 500;
   color: #a5806c;
   padding-top: 1.2rem;
   padding-bottom: 2rem;
@@ -351,6 +418,8 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #fff;
+  width: 42rem;
+  height: 47.3rem;
   border-radius: 3.6rem;
   transition: all 0.3s;
 }
@@ -364,14 +433,6 @@ body {
   font-size: 2rem;
   font-weight: 600;
   padding: 2.2rem 0;
-}
-.section-3 .left-content img {
-  width: 102rem;
-  height: 96.2rem;
-}
-.section-3 .right-content .right-card img {
-  width: 42rem;
-  height: 40.5rem;
 }
 .section-3 .right-content {
   display: none;
@@ -800,6 +861,54 @@ footer {
   }
 
   /* 헤더 끝 */
+
+  /* 섹션 3 시작 */
+
+  .section-3-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .section-3 .right-content {
+    padding: 10rem 0;
+  }
+  .section-3 .left-content {
+    width: 76.8rem;
+    height: 72.4rem;
+  }
+  .section-3 .right-card-top {
+    align-items: center;
+    justify-content: center;
+  }
+  .section-3 .right-card-bottom {
+    align-items: center;
+    justify-content: center;
+  }
+  .section-3 .right-card {
+    width: 33.4rem;
+    height: 37.6rem;
+  }
+  .section-3 .right-card-1 {
+    gap: 1rem;
+    padding-left: 0;
+    width: 33.4rem;
+    height: 37.6rem;
+    padding-left: 1rem;
+  }
+  .section-3 .right-card p {
+    font-size: 1.6rem;
+  }
+  .section-3 .right-card-1 h2 {
+    font-size: 3.4rem;
+  }
+  .section-3 .right-card-1 .right-card-1-text-1 {
+    font-size: 1.6rem;
+  }
+  .section-3 .right-card-1 .right-card-1-text-2 {
+    font-size: 1.2rem;
+  }
+
+  /* 섹션 3 끝 */
 
   /* 디바이더 1 시작 */
 
