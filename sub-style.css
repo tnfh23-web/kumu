@@ -358,6 +358,7 @@ form .textarea-1::placeholder {
   gap: 2rem;
 }
 .sub-last-box .plus-button {
+  display: none;
   width: 100%;
   height: 4rem;
   background-color: #fdfaf7;
