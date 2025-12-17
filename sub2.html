@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kumu</title>
+    <link rel="stylesheet" href="sub2-style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="sub-2-script.js" defer></script>
+  </head>
+  <body>
+    <main class="sub_prod">
+      <section class="sub_page_bakery">
+        <!-- 타이틀 -->
+        <div class="sub_page_header">
+          <h1 class="sub_page_title" id="sub_page_title">BEVERAGE</h1>
+          <p class="sub_page_desc" id="sub_page_desc">쿠무에서 완성되는 한 잔의 쉼</p>
+        </div>
+        <!-- 탭메뉴 -->
+        <div class="tab_menu">
+          <ul class="tab_btn">
+            <!-- 음료 -->
+            <li class="tab_list-1 active" data-title="BEVERAGE" data-desc="쿠무에서 완성되는 한 잔의 쉼">
+              <a href="#">음료</a>
+            </li>
+            <!-- 베이커리 -->
+            <li class="tab_list-2" data-title="BAKERY" data-desc="쿠무의 모든 베이커리가 함께하는 시간">
+              <a href="#">베이커리</a>
+            </li>
+            <!-- 굿즈 -->
+            <li class="tab_list-3" data-title="GOODS" data-desc="쿠무와의 순간을 오래 남겨주는 굿즈">
+              <a href="#">굿즈</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <!-- 제품시작 -->
+        <div class="product_container">
+          <!-- 음료 -->
+          <div class="prod_wrap beverage_product_card_wrap active">
+            <!-- 아메리카노 제품카드 -->
+            <div class="beverage_product_card">
+              <div class="beverage_product_img_wrap">
+                <img src="/img/sub-2/americano.svg" alt="americano" />
+              </div>
+              <p class="product_desc">깔끔한 산미와 단단한 바디의 데일리 블랙</p>
+              <h2 class="product_name">블렌드 아메리카노</h2>
+              <p class="product_price">4,500원</p>
+            </div>
+            <!-- 크림 콜드브루 제품카드 -->
+            <div class="beverage_product_card">
+              <div class="beverage_product_img_wrap">
+                <img src="/img/sub-2/cream cold brew.svg" alt="cold brew" />
+              </div>
+              <p class="product_desc">깔끔한 콜드브루 위에 부드러운 크림 헤드</p>
+              <h2 class="product_name">크림 콜드브루</h2>
+              <p class="product_price">6,200원</p>
+            </div>
+            <!-- 카페 라떼 제품카드 -->
+            <div class="beverage_product_card">
+              <div class="beverage_product_img_wrap">
+                <img src="/img/sub-2/cafe latte.svg" alt="cafe latte" />
+              </div>
+              <p class="product_desc">진한 에스프레소에 부드러운 스팀 밀크</p>
+              <h2 class="product_name">카페 라떼</h2>
+              <p class="product_price">5,000원</p>
+            </div>
+            <!-- 바닐라 빈 라떼 제품카드 -->
+            <div class="beverage_product_card">
+              <div class="beverage_product_img_wrap">
+                <img src="/img/sub-2/vanilla bean latte.svg" alt="vanilla bean latte" />
+              </div>
+              <p class="product_desc">마다가스카르 바닐라의 은은한 단맛이 포인트</p>
+              <h2 class="product_name">바닐라 빈 라떼</h2>
+              <p class="product_price">5,500원</p>
+            </div>
+            <!-- 제주 말차 라떼 제품카드 -->
+            <div class="beverage_product_card">
+              <div class="beverage_product_img_wrap">
+                <img src="/img/sub-2/matcha latte.svg" alt="jeju matcha latte" />
+              </div>
+              <p class="product_desc">진한 제주 말차와 우유의 고소한 밸런스</p>
+              <h2 class="product_name">제주 말차 라떼</h2>
+              <p class="product_price">5,500원</p>
+            </div>
+            <!-- 다크 코코아 라떼 제품카드 -->
+            <div class="beverage_product_card">
+              <div class="beverage_product_img_wrap">
+                <img src="/img/sub-2/cocoa latte.svg" alt="dark cocoa latte" />
+              </div>
+              <p class="product_desc">코코아와 우유의 부드러운 조화</p>
+              <h2 class="product_name">다크 코코아 라떼</h2>
+              <p class="product_price">5,200원</p>
+            </div>
+            <!-- 유자 레몬티 제품카드 -->
+            <div class="beverage_product_card">
+              <div class="beverage_product_img_wrap">
+                <img src="/img/sub-2/citron lemon tea.svg" alt="citron lemon tea" />
+              </div>
+              <p class="product_desc">유자와 레몬의 상큼함이 살아 있는 상쾌한 한 모금</p>
+              <h2 class="product_name">유자 레몬티</h2>
+              <p class="product_price">5,300원</p>
+            </div>
+            <!-- 진저 밀크티 제품카드 -->
+            <div class="beverage_product_card">
+              <div class="beverage_product_img_wrap">
+                <img src="/img/sub-2/ginger milk tea.svg" alt="ginger milk tea" />
+              </div>
+              <p class="product_desc">알싸한 진저와 부드러운 밀크티의 포근한 조화</p>
+              <h2 class="product_name">진저 밀크티</h2>
+              <p class="product_price">5,800원</p>
+            </div>
+          </div>
+
+          <!-- 베이커리 -->
+          <div class="prod_wrap bakery_product_card_wrap">
+            <!-- 사계절 과일 타르트 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/tart package.svg" alt="tart" />
+                <img src="/img/sub-2/tart hover.svg" alt="tart_hover" />
+              </div>
+              <p class="product_desc">제철 과일을 듬뿍 올린 상큼한 한 조각</p>
+              <h2 class="product_name">사계절 과일 타르트</h2>
+              <p class="product_price">6,800원</p>
+            </div>
+            <!-- 다크초코 까눌레 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/canule package.svg" alt="canule" />
+                <img src="/img/sub-2/canule hover.svg" alt="canule_hover" />
+              </div>
+              <p class="product_desc">바삭 캐러멜 코팅, 다크초코 향</p>
+              <h2 class="product_name">다크초코 까눌레</h2>
+              <p class="product_price">3,800원</p>
+            </div>
+            <!-- 초콜릿 헤이즐넛 도넛 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/donut package.svg" alt="donut" />
+                <img src="/img/sub-2/donut hover.svg" alt="donut_hover" />
+              </div>
+              <p class="product_desc">진한 초코와 고소한 너트, 달콤한 순간</p>
+              <h2 class="product_name">초콜릿 헤이즐넛 도넛</h2>
+              <p class="product_price">4,800원</p>
+            </div>
+            <!-- 버터 크루아상 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/croissant package.svg" alt="croissant" />
+                <img src="/img/sub-2/croissant hover.svg" alt="croissant_hover" />
+              </div>
+              <p class="product_desc">클래식한 담백 버터 향</p>
+              <h2 class="product_name">버터 크루아상</h2>
+              <p class="product_price">3,500원</p>
+            </div>
+            <!-- 솔트 버터 소금빵 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/salt bread package.svg" alt="salt bread" />
+                <img src="/img/sub-2/salt bread hover.svg" alt="salt bread_hover" />
+              </div>
+              <p class="product_desc">고소한 버터에 소금 한 꼬집, 담백한 일상빵</p>
+              <h2 class="product_name">솔트 버터 소금빵</h2>
+              <p class="product_price">4,200원</p>
+            </div>
+            <!-- 스트로베리 레드 쿠키 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/strawberry cookie package.svg" alt="strawberry cookies" />
+                <img src="/img/sub-2/strawberry cookie hover.svg" alt="strawberry cookies_hover" />
+              </div>
+              <p class="product_desc">바삭한 레드 쿠키에 상큼한 딸기 한 점 포인트</p>
+              <h2 class="product_name">스트로베리 레드 쿠키</h2>
+              <p class="product_price">4,500원</p>
+            </div>
+            <!-- 허니 브레드 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/honey bread package.svg" alt="honey bread" />
+                <img src="/img/sub-2/honey bread hover.svg" alt="honey bread_hover" />
+              </div>
+              <p class="product_desc">따끈한 토스트 위 꿀과 크림의 달콤 고소함</p>
+              <h2 class="product_name">허니 브레드</h2>
+              <p class="product_price">3,800원</p>
+            </div>
+            <!-- 우유 롤케이크 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/roll cake package.svg" alt="roll cake" />
+                <img src="/img/sub-2/roll cake hover.svg" alt="roll cake_hover" />
+              </div>
+              <p class="product_desc">폭신한 시트에 우유 크림이 가볍게 감싼 맛</p>
+              <h2 class="product_name">우유 롤케이크</h2>
+              <p class="product_price">4,800원</p>
+            </div>
+            <!-- 딸기망고 샌드 마카롱 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/macaroon package.svg" alt="macaroon" />
+                <img src="/img/macaroon hover.svg" alt="macaroon_hover" />
+              </div>
+              <p class="product_desc">바닐라 크림 사이에 딸기와 망고를 꽉 채운 한 입</p>
+              <h2 class="product_name">딸기망고 샌드 마카롱</h2>
+              <p class="product_price">4,500원</p>
+            </div>
+            <!-- 메이플 버터 팬케이크 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/pancake package.svg" alt="pancake" />
+                <img src="/img/sub-2/pancake hover.svg" alt="pancake_hover" />
+              </div>
+              <p class="product_desc">메이플과 버터가 층층이 스며든 포근한 맛</p>
+              <h2 class="product_name">메이플 버터 팬케이크</h2>
+              <p class="product_price">7,500원</p>
+            </div>
+            <!-- 스트로베리 클라우드 케이크 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/strawberry cake package.svg" alt="strawberry cake" />
+                <img src="/img/sub-2/strawberry cake hover.svg" alt="strawberry cake_hover" />
+              </div>
+              <p class="product_desc">촉촉한 시트에 딸기와 생크림의 정석 조합</p>
+              <h2 class="product_name">스트로베리 클라우드 케이크</h2>
+              <p class="product_price">6,500원</p>
+            </div>
+            <!-- 뉴욕 치즈케이크 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/cheesecake package.svg" alt="cheese cake" />
+                <img src="/img/sub-2/cheesecake hover.svg" alt="cheese cake_hover" />
+              </div>
+              <p class="product_desc">꾸덕한 치즈 텍스처와 고소한 크러스트의 클래식</p>
+              <h2 class="product_name">뉴욕 치즈케이크</h2>
+              <p class="product_price">5,800원</p>
+            </div>
+            <!-- 과일 크림 베이글 제품카드 -->
+            <div class="bakery_product_card">
+              <div class="bakery_product_img_wrap">
+                <img src="/img/sub-2/bagel Package.svg" alt="bagel" />
+                <img src="/img/sub-2/bagel hover.svg" alt="bagel_hover" />
+              </div>
+              <p class="product_desc">상큼한 과일과 크림치즈가 꽉 찬 든든한 한 끼</p>
+              <h2 class="product_name">과일 크림 베이글</h2>
+              <p class="product_price">5,200원</p>
+            </div>
+          </div>
+
+          <!-- 굿즈 -->
+          <div class="prod_wrap goods_product_card_wrap">
+            <!-- 쿠무 포근 키링 제품카드 -->
+            <div class="goods_product_card">
+              <div class="goods_product_img_wrap">
+                <img src="/img/sub-2/keyring.svg" alt="keyring" />
+              </div>
+              <p class="product_desc">쿠무를 항상 곁에 두는 포근한 키링</p>
+              <h2 class="product_name">쿠무 포근 키링</h2>
+              <p class="product_price">6,500원</p>
+            </div>
+            <!-- 쿠무 산책 에코백 제품카드 -->
+            <div class="goods_product_card">
+              <div class="goods_product_img_wrap">
+                <img src="/img/sub-2/eco bag.svg" alt="eco bag" />
+              </div>
+              <p class="product_desc">산책부터 장보기까지 함께하는 여유로운 에코백</p>
+              <h2 class="product_name">쿠무 산책 에코백</h2>
+              <p class="product_price">15,900원</p>
+            </div>
+            <!-- 쿠무 데일리 텀블러 제품카드 -->
+            <div class="goods_product_card">
+              <div class="goods_product_img_wrap">
+                <img src="/img/sub-2/tumbler.svg" alt="tumbler" />
+              </div>
+              <p class="product_desc">따뜻한 온도를 오래 지켜주는 텀블러</p>
+              <h2 class="product_name">쿠무 데일리 텀블러</h2>
+              <p class="product_price">12,800원</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

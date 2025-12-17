@@ -1,0 +1,286 @@
+@font-face {
+  font-family: "YeogiOttaeJalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+/* -------------------- 노말라이즈 -------------------- */
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* -------------------- body 컬러 -------------------- */
+body {
+  background-color: #fdfaf7;
+}
+
+.sub_page_bakery {
+  position: relative;
+}
+
+/* -------------------- 타이틀 -------------------- */
+.sub_page_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+
+.sub_page_title {
+  color: #ad7252;
+  font-size: 75px;
+  font-weight: 400;
+  font-family: "YeogiOttaeJalnan";
+}
+
+.sub_page_desc {
+  color: #111111;
+  font-size: 28px;
+  font-weight: 500;
+  font-family: "Pretendard";
+}
+
+/* -------------------- 탭메뉴 -------------------- */
+.tab_menu {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.tab_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6f1e9;
+  z-index: 1000;
+  padding: 2rem 4rem 0 4rem;
+  border-radius: 7rem;
+}
+
+.tab_list-1,
+.tab_list-2,
+.tab_list-3 {
+  color: #111111;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: "Pretendard";
+  padding: 8px 29px 8px 29px;
+}
+
+.tab_btn li {
+  position: relative;
+}
+
+.tab_btn li a {
+  display: inline-block;
+  padding: 8px 29px;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: "Pretendard";
+  color: #111;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.tab_btn li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 141px;
+  height: 68px;
+  background-position: center;
+  background-size: contain;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.tab_btn li.active::before {
+  background-image: url("img/sub-2/tap\ button\ bread.svg");
+  opacity: 1;
+}
+
+.tab_btn li.active a {
+  color: #f4ede4;
+  font-weight: 500;
+  font-family: "Pretendard";
+}
+
+/* -------------------- 제품시작 -------------------- */
+.product_container {
+  background-color: #f6f1e9;
+  border-radius: 30px;
+  padding: 100px 120px 0px 120px;
+  margin-top: -40px;
+}
+
+/* -------------------- 제품카드 공통 -------------------- */
+.product_desc {
+  color: #111111;
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 24px;
+  font-family: "Pretendard";
+}
+
+.product_name {
+  color: #111111;
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 8px;
+  font-family: "Pretendard";
+}
+
+.product_price {
+  color: #111111;
+  font-size: 24px;
+  font-weight: 600;
+  padding-top: 16px;
+  font-family: "Pretendard";
+}
+
+/* -------------------- 음료 제품카드 -------------------- */
+.beverage_product_card {
+  text-align: center;
+}
+
+.beverage_product_card img {
+  max-width: 100%;
+}
+
+.beverage_product_img_wrap {
+  background-color: #ffffff;
+  border-radius: 40px;
+}
+
+.beverage_product_img_wrap img {
+  transition: transform 0.5s ease;
+}
+
+/* -------------------- 음료 제품카드 hover -------------------- */
+.beverage_product_card:hover .beverage_product_img_wrap img {
+  transform: scale(1.05); /* hover 이미지 커지는 크기 */
+}
+
+/* -------------------- 베이커리 제품카드 -------------------- */
+.prod_wrap {
+  gap: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  display: none;
+  row-gap: 60px;
+}
+
+.prod_wrap.active {
+  display: grid;
+}
+
+.bakery_product_card {
+  text-align: center;
+}
+
+.bakery_product_card img {
+  max-width: 100%;
+}
+
+.bakery_product_img_wrap {
+  background-color: #ffffff;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bakery_product_img_wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+.bakery_product_img_wrap img:nth-child(2) {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  opacity: 0;
+}
+
+/* -------------------- 베이커리 제품카드 hover -------------------- */
+.bakery_product_card:hover .bakery_product_img_wrap img:nth-child(1) {
+  opacity: 0;
+  transform: scale(1);
+}
+
+.bakery_product_card:hover .bakery_product_img_wrap img:nth-child(2) {
+  opacity: 1;
+  transform: scale(1.05); /* hover 이미지 커지는 크기 */
+}
+
+/* -------------------- 굿즈 제품카드 -------------------- */
+.goods_product_card_wrap {
+  gap: 24px;
+}
+
+.goods_product_card {
+  text-align: center;
+}
+
+.goods_product_card img {
+  max-width: 100%;
+}
+
+.goods_product_img_wrap {
+  background-color: #ffffff;
+  border-radius: 40px;
+}
+
+.goods_product_img_wrap img {
+  transition: transform 0.5s ease;
+}
+
+/* -------------------- 굿즈 제품카드 hover -------------------- */
+.goods_product_card:hover .goods_product_img_wrap img {
+  transform: scale(1.05); /* hover 이미지 커지는 크기 */
+}

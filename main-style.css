@@ -113,6 +113,20 @@ body {
   background-color: var(--main-background);
   color: var(--text-color);
 }
+
+/* 예약폼 시작 */
+
+.fixed-reserve-btn {
+  position: fixed;
+  bottom: 10rem;
+  right: 3rem;
+  z-index: 9999;
+}
+.fixed-reserve-btn img {
+  width: 9rem;
+  height: 9rem;
+}
+/* 예약폼 끝 */
 /* header 시작 */
 .mobile-header {
   display: none;
