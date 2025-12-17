@@ -210,7 +210,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  color: #ad7252;
+  color: #ac753e;
   font-weight: 500;
 }
 .top-bar ul li ul {
@@ -230,6 +230,10 @@ body {
   padding: 1rem;
   font-size: 1.6rem;
   font-weight: 400;
+  opacity: 0.6;
+}
+.top-bar ul li ul li a:hover {
+  opacity: 1;
 }
 .sidebar-menu {
   display: none;
@@ -280,36 +284,88 @@ body {
 
 /* 섹션 2 시작 */
 .section-2 {
-  height: 2000px;
+  padding: 15rem 0;
 }
 .section-2 .section-2-title-box {
   text-align: center;
   font-size: 6.4rem;
   color: var(--point-text-color);
+  padding-bottom: 2.4rem;
 }
-.section-2 .tab-box-1__head {
+.section-2 .tab_menu {
+  width: 100%;
+  max-width: 150rem;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 1.6rem;
-  font-size: 1.8rem;
-}
-.section-2 .tab-box-container {
-  display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 10;
 }
-.section-2 .tab-box-container .left-space {
+.section-2 .tab_menu .space-left {
   width: 14.1rem;
 }
-.section-2 .sec-2-button-box {
+.section-2 .tab_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-2 .tab_list-1,
+.section-2 .tab_list-2,
+.section-2 .tab_list-3 {
+  color: #111111;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 8px 29px 8px 29px;
+}
+
+.section-2 .tab_btn li {
+  position: relative;
+}
+
+.section-2 .tab_btn li a {
+  display: inline-block;
+  padding: 8px 29px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #111;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.section-2 .tab_btn li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 141px;
+  height: 68px;
+  background-position: center;
+  background-size: contain;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.section-2 .tab_btn li.active::before {
+  background-image: url("/img/sec_2/tab_button.png");
+  opacity: 1;
+}
+
+.section-2 .tab_btn li.active a {
+  color: #f4ede4;
+}
+.section-2-button-box {
+  padding-top: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.sec-2-button-box > .sec-2-button {
+.section-2-button-box > .section-2-button {
   position: relative;
 }
-.sec-2-button span {
+.section-2-button span {
   display: block;
   position: absolute;
   top: 50%;
@@ -319,10 +375,10 @@ body {
   font-weight: 500;
   transition: all 0.3s;
 }
-.sec-2-button:hover span {
+.section-2-button:hover span {
   color: #f4ede4;
 }
-.sec-2-button .hover-img {
+.section-2-button-box .hover-img {
   opacity: 0;
   position: absolute;
   top: -10px;
@@ -331,32 +387,42 @@ body {
   transition: transform 0.3s, opacity 0.2s 0.1s;
   transform-origin: top;
 }
-.sec-2-button:hover .hover-img {
+.section-2-button:hover .hover-img {
   opacity: 1;
   transform: scaleY(1);
   transition: transform 0.3s;
 }
-.section-2 .tab-box-1__item a {
-  position: relative;
+.section-2-swiper-wrap {
+  display: none;
+  margin-top: 3.6rem;
 }
-.section-2 .tab-box-1__item a img {
-  opacity: 0;
-  visibility: hidden;
-}
-.section-2 .tab-box-1__item a img.active {
+
+.section-2-swiper-wrap.active {
   display: block;
 }
-.section-2 .tab-box-1__item span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  text-align: center;
-  z-index: 1;
-  transform: translate(-50%, -50%);
+
+.section-2-swiper {
+  max-width: 150rem;
+  margin: 0 auto;
 }
-.section-2 .tab-box-1__item span.active {
-  color: #f4ede4;
+
+.section-2-swiper .swiper-slide {
+  text-align: center;
+  width: 35.7rem;
+}
+
+.section-2-swiper p {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.section-2-swiper span {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none;
 }
 /* 섹션 2 끝 */
 /* 섹션 3 시작 */
