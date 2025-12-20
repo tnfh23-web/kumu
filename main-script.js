@@ -144,6 +144,123 @@ function section3_toggle_init() {
 section3_toggle_init();
 
 // 섹션 3 끝
+// 섹션 3 375반응형 시작
+let rightSwiper;
+
+function updateRightCounter(swiper) {
+  const root = document.querySelector(".section-3 .mobile-box");
+  if (!root) return;
+
+  const currentEl = root.querySelector(".right-swiper-fraction .current");
+  const totalEl = root.querySelector(".right-swiper-fraction .total");
+  if (!currentEl || !totalEl) return;
+
+  // loop 쓰면 swiper.realIndex가 "진짜 슬라이드" 기준이라 이거 쓰는게 정답
+  const current = swiper.realIndex + 1;
+
+  // 총 개수는 DOM에서 duplicate 제외하고 계산
+  const total = root.querySelectorAll(".right-swiper .swiper-slide:not(.swiper-slide-duplicate)").length;
+
+  currentEl.textContent = String(current).padStart(2, "0");
+  totalEl.textContent = String(total).padStart(2, "0");
+}
+
+function initRightSwiper() {
+  // 375 초과면 스와이퍼 제거
+  if (window.matchMedia("(min-width: 376px)").matches) {
+    if (rightSwiper) {
+      rightSwiper.destroy(true, true);
+      rightSwiper = null;
+    }
+    return;
+  }
+
+  // 375 이하에서만 생성
+  if (!rightSwiper) {
+    rightSwiper = new Swiper(".section-3 .right-swiper", {
+      slidesPerView: "auto",
+      centeredSlides: true,
+      spaceBetween: 16,
+      loop: true,
+      initialSlide: 0,
+      speed: 600,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+
+      navigation: {
+        nextEl: ".section-3 .right-swiper-next",
+        prevEl: ".section-3 .right-swiper-prev",
+      },
+
+      on: {
+        init(swiper) {
+          updateRightCounter(swiper);
+        },
+        slideChange(swiper) {
+          updateRightCounter(swiper);
+        },
+      },
+    });
+  } else {
+    rightSwiper.update();
+    updateRightCounter(rightSwiper);
+  }
+}
+
+// DOM 다 만든 다음 실행 (중요)
+document.addEventListener("DOMContentLoaded", () => {
+  initRightSwiper();
+  window.addEventListener("resize", initRightSwiper);
+});
+// 섹션 3 375 반응형 끝
+
+// 섹션 4 768반응형 시작
+
+function eventAutoSwitch() {
+  if (window.innerWidth > 768) return;
+
+  const pages = document.querySelectorAll(".event-page");
+  let index = 0;
+
+  setInterval(() => {
+    pages[index].classList.remove("active");
+    index = (index + 1) % pages.length;
+    pages[index].classList.add("active");
+  }, 3000);
+}
+
+eventAutoSwitch();
+
+// 섹션 4 768반응형 끝
+let eventSwiper;
+
+function initEventSwiper() {
+  if (window.innerWidth > 375 && eventSwiper) {
+    eventSwiper.destroy(true, true);
+    eventSwiper = null;
+    return;
+  }
+
+  if (window.innerWidth <= 375 && !eventSwiper) {
+    eventSwiper = new Swiper(".event-swiper", {
+      slidesPerView: "auto",
+      centeredSlides: true,
+      spaceBetween: 16,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+    });
+  }
+}
+
+initEventSwiper();
+window.addEventListener("resize", initEventSwiper);
 
 // 디바이더 1 마퀴 시작
 

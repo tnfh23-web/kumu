@@ -118,7 +118,7 @@ body {
   padding: 8px 29px;
   font-size: 24px;
   font-weight: 500;
-  font-family: "Pretendard";
+  font-family: "YeogiOttaeJalnan";
   color: #111;
   position: relative;
   z-index: 2;
@@ -146,7 +146,7 @@ body {
 .tab_btn li.active a {
   color: #f4ede4;
   font-weight: 500;
-  font-family: "Pretendard";
+  font-family: "YeogiOttaeJalnan";
 }
 
 /* -------------------- 제품시작 -------------------- */
