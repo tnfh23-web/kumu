@@ -263,12 +263,9 @@ body {
   align-items: start;
   padding-top: 11rem;
 }
-.section-1 .section-1-grid {
-  overflow-x: hidden;
-  max-width: var(--maxwidth);
-}
 .section-1-swiper {
   width: 100%;
+  max-width: var(--maxwidth);
   height: 81rem;
   border-radius: 10rem;
   overflow: hidden;
@@ -282,9 +279,8 @@ body {
   background: rgba(255, 255, 255, 0.5);
   width: 1.4rem;
   height: 1.4rem;
-  margin: 0 6px;
+  margin: 0 0.6rem;
   border-radius: 50%;
-  /* transition: all 0.3s; */
   opacity: 1;
 }
 
@@ -299,6 +295,9 @@ body {
 /* 섹션 2 시작 */
 .section-2 {
   padding: 15rem 0;
+}
+.section-2 .section-2-tablet-button-box {
+  display: none;
 }
 .section-2 .section-2-title-box {
   text-align: center;
@@ -821,10 +820,6 @@ footer {
 
 /* 반응형 768 */
 @media (max-width: 768px) {
-  html {
-    font-size: 10px;
-  }
-
   /* 헤더 시작 */
 
   .header {
@@ -957,6 +952,142 @@ footer {
   }
 
   /* 헤더 끝 */
+
+  /* 섹션 1 시작 */
+
+  .section-1 {
+    padding-top: 8rem;
+  }
+  .section-1-swiper {
+    width: 100%;
+    max-width: 100%;
+    height: 41.3rem;
+    border-radius: 0;
+  }
+  .section-1-swiper .swiper-slide {
+    width: 76.8rem;
+    height: 41.3rem;
+  }
+  .section-1-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+  }
+  .section-1-swiper .swiper-pagination-bullet {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .section-1-swiper .swiper-pagination-bullet-active {
+    width: 3.5rem;
+    border-radius: 2rem;
+  }
+
+  /* 섹션 1 끝 */
+
+  /* 섹션 2 시작 */
+
+  .section-2 {
+    padding: 10rem 0;
+  }
+  .section-2 .section-2-title-box {
+    padding-bottom: 1.7rem;
+  }
+  .section-2 .section-2-title-box h2 {
+    font-size: 3.6rem;
+  }
+  .section-2 .tab_menu {
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    z-index: 10;
+  }
+  .section-2 .tab_menu .space-left {
+    display: none;
+  }
+  .section-2 .tab_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section-2 .tab_btn li {
+    position: relative;
+  }
+
+  .section-2 .tab_btn li a {
+    display: inline-block;
+    font-size: 1.4rem;
+    padding: 1.2rem 2.4rem;
+  }
+
+  .section-2 .tab_btn li::before {
+    margin: auto;
+    width: 7.2rem;
+    height: 3.4rem;
+    background-position: center;
+    background-size: contain;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .section-2 .tab_btn li.active::before {
+    background-image: url("/img/sec_2/tablet_tab_button.png");
+    opacity: 1;
+  }
+  .section-2-button-box {
+    display: none;
+  }
+  .section-2 .section-2-tablet-button-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3.3rem;
+  }
+  .section-2-tablet-button-box > .section-2-tablet-button {
+    position: relative;
+    width: 11rem;
+    height: 5.3rem;
+  }
+  .section-2-tablet-button span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  .section-2-tablet-button:hover span {
+    color: #f4ede4;
+  }
+  .section-2-tablet-button-box .hover-img {
+    opacity: 0;
+    position: absolute;
+    top: -10px;
+    left: 1px;
+    transform: scaleY(0.4);
+    transition: transform 0.3s, opacity 0.2s 0.1s;
+    transform-origin: top;
+  }
+  .section-2-tablet-button:hover .hover-img {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: transform 0.3s;
+  }
+
+  .section-2-swiper-wrap {
+    margin-top: 3.3rem;
+  }
+
+  .section-2-swiper p {
+    font-size: 1.2rem;
+  }
+  .section-2-swiper span {
+    font-size: 1.5rem;
+  }
+
+  /* 섹션 2 끝 */
 
   /* 섹션 3 시작 */
   .section-3 {
@@ -1130,6 +1261,96 @@ footer {
 /* 반응형 375 */
 
 @media (max-width: 375px) {
+  /* 섹션 1 시작 */
+
+  .section-1 {
+    padding-top: 8rem;
+  }
+  .section-1-swiper {
+    width: 100%;
+    max-width: 100%;
+    height: 65.7rem;
+    border-radius: 0;
+  }
+  .section-1-swiper .swiper-slide {
+    width: 37.5rem;
+    height: 65.7rem;
+  }
+  .section-1-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+  }
+  .section-1-swiper .swiper-pagination-bullet {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .section-1-swiper .swiper-pagination-bullet-active {
+    width: 3.5rem;
+    border-radius: 2rem;
+  }
+
+  /* 섹션 1 끝 */
+
+  /* 섹션 2 시작 */
+
+  .section-2 {
+    padding: 6.4rem 0;
+  }
+  .section-2 .section-2-title-box {
+    padding-bottom: 1.6rem;
+  }
+  .section-2 .section-2-title-box h2 {
+    font-size: 2.2rem;
+  }
+
+  .section-2 .tab_btn li {
+    position: relative;
+  }
+
+  .section-2 .tab_btn li a {
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .section-2 .tab_btn li::before {
+    margin: auto;
+    width: 7.2rem;
+    height: 3.4rem;
+    background-position: center;
+    background-size: contain;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .section-2 .tab_btn li.active::before {
+    background-image: url("/img/sec_2/tablet_tab_button.png");
+    opacity: 1;
+  }
+  .section-2 .section-2-tablet-button-box {
+    padding-top: 2.7rem;
+  }
+  .section-2-tablet-button-box > .section-2-tablet-button {
+    width: 9.5rem;
+    height: 4.4rem;
+  }
+  .section-2-tablet-button span {
+    font-size: 1rem;
+  }
+  .section-2-swiper-wrap {
+    margin-top: 2.7rem;
+  }
+
+  .section-2-swiper p {
+    font-size: 1rem;
+  }
+  .section-2-swiper span {
+    font-size: 1.2rem;
+  }
+
+  /* 섹션 2 끝 */
+
   /* 섹션 3 시작 */
   .section-3 .left-content {
     width: 37.5rem;

@@ -160,23 +160,30 @@
       </div>
       <!-- 섹션 1 -->
       <section class="section-1">
-        <div class="section-1-grid">
-          <div class="section-1-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
+        <div class="section-1-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <picture>
+                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_1.png" />
                 <img src="img/sec_1/banner_1.png" alt="배너이미지" />
-              </div>
-
-              <div class="swiper-slide">
-                <img src="img/sec_1/banner_2.png" alt="배너이미지" />
-              </div>
-
-              <div class="swiper-slide">
-                <img src="img/sec_1/banner_3.png" alt="배너이미지" />
-              </div>
+              </picture>
             </div>
-            <div class="swiper-pagination"></div>
+
+            <div class="swiper-slide">
+              <picture>
+                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_2.png" />
+                <img src="img/sec_1/banner_2.png" alt="배너이미지" />
+              </picture>
+            </div>
+
+            <div class="swiper-slide">
+              <picture>
+                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_3.png" />
+                <img src="img/sec_1/banner_3.png" alt="배너이미지" />
+              </picture>
+            </div>
           </div>
+          <div class="swiper-pagination"></div>
         </div>
       </section>
 
@@ -331,6 +338,13 @@
 
             <div class="swiper-button-prev"><img src="/img/arrow-left.png" alt="" /></div>
             <div class="swiper-button-next"><img src="img/arrow-right.png" alt="" /></div>
+          </div>
+        </div>
+        <div class="section-2-tablet-button-box">
+          <div class="section-2-tablet-button">
+            <a href="/sub2.html" onclick="event.stopPropagation()"
+              ><img class="button-img" src="img/sub-img/sub-button.svg" alt="버튼 이미지" /><img class="hover-img" src="img/sub-img/hover-button-img-2.svg" alt="호버 이미지" /><span>전체보기</span></a
+            >
           </div>
         </div>
       </section>

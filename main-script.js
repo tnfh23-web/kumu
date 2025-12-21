@@ -96,6 +96,7 @@ $(".tab_btn li").on("click", function (e) {
   // 스와이퍼 전환
   $(".section-2-swiper-wrap").removeClass("active").eq(idx).addClass("active");
 });
+
 new Swiper(".drink-swiper", {
   loop: true,
   slidesPerView: 4,
@@ -103,6 +104,23 @@ new Swiper(".drink-swiper", {
   navigation: {
     nextEl: ".drink-swiper .swiper-button-next",
     prevEl: ".drink-swiper .swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    376: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    769: {
+      slidesPerView: 4,
+      spaceBetween: 24,
+      navigation: {
+        nextEl: ".drink-swiper .swiper-button-next",
+        prevEl: ".drink-swiper .swiper-button-prev",
+      },
+    },
   },
 });
 
@@ -114,6 +132,23 @@ new Swiper(".bakery-swiper", {
     nextEl: ".bakery-swiper .swiper-button-next",
     prevEl: ".bakery-swiper .swiper-button-prev",
   },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    376: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    769: {
+      slidesPerView: 4,
+      spaceBetween: 24,
+      navigation: {
+        nextEl: ".drink-swiper .swiper-button-next",
+        prevEl: ".drink-swiper .swiper-button-prev",
+      },
+    },
+  },
 });
 
 new Swiper(".goods-swiper", {
@@ -123,6 +158,23 @@ new Swiper(".goods-swiper", {
   navigation: {
     nextEl: ".goods-swiper .swiper-button-next",
     prevEl: ".goods-swiper .swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    376: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    769: {
+      slidesPerView: 4,
+      spaceBetween: 24,
+      navigation: {
+        nextEl: ".drink-swiper .swiper-button-next",
+        prevEl: ".drink-swiper .swiper-button-prev",
+      },
+    },
   },
 });
 
