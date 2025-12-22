@@ -144,8 +144,8 @@ new Swiper(".bakery-swiper", {
       slidesPerView: 4,
       spaceBetween: 24,
       navigation: {
-        nextEl: ".drink-swiper .swiper-button-next",
-        prevEl: ".drink-swiper .swiper-button-prev",
+        nextEl: ".bakery-swiper .swiper-button-next",
+        prevEl: ".bakery-swiper .swiper-button-prev",
       },
     },
   },
@@ -171,8 +171,8 @@ new Swiper(".goods-swiper", {
       slidesPerView: 4,
       spaceBetween: 24,
       navigation: {
-        nextEl: ".drink-swiper .swiper-button-next",
-        prevEl: ".drink-swiper .swiper-button-prev",
+        nextEl: ".goods-swiper .swiper-button-next",
+        prevEl: ".goods-swiper .swiper-button-prev",
       },
     },
   },
