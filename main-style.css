@@ -364,7 +364,7 @@ body {
 }
 
 .section-2 .tab_btn li.active::before {
-  background-image: url("/img/sec_2/tab_button.png");
+  background-image: url("img/sec_2/tab_button.png");
   opacity: 1;
 }
 
@@ -1031,7 +1031,7 @@ footer {
   }
 
   .section-2 .tab_btn li.active::before {
-    background-image: url("/img/sec_2/tablet_tab_button.png");
+    background-image: url("img/sec_2/tablet_tab_button.png");
     opacity: 1;
   }
   .section-2-button-box {
@@ -1325,7 +1325,7 @@ footer {
   }
 
   .section-2 .tab_btn li.active::before {
-    background-image: url("/img/sec_2/tablet_tab_button.png");
+    background-image: url("img/sec_2/tablet_tab_button.png");
     opacity: 1;
   }
   .section-2 .section-2-tablet-button-box {
