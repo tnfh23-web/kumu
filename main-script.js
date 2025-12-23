@@ -1,6 +1,24 @@
 $(".submenu").hide();
 $("#menu_bg").hide();
 
+// 프로모션 시작
+
+document.querySelectorAll(".promo-text").forEach((promoBox) => {
+  const texts = promoBox.querySelectorAll("span");
+  let current = 0;
+
+  setInterval(() => {
+    const next = (current + 1) % texts.length;
+
+    texts[next].classList.add("active");
+    texts[current].classList.remove("active");
+
+    current = next;
+  }, 3000);
+});
+
+// 프로모션 끝
+
 // 헤더 시작
 $(".navi>li")
   .mouseenter(function () {
@@ -42,7 +60,7 @@ $(".sidebar-menu-list > a").click(function (e) {
 
 // 섹션 1 스와이퍼 시작
 
-var swiper = new Swiper(".section-1-swiper", {
+var sec1swiper = new Swiper(".section-1-swiper", {
   loop: true,
   pagination: {
     el: ".swiper-pagination",
