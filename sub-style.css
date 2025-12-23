@@ -257,16 +257,23 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 13rem 0;
+  gap: 2rem;
+  padding: 13rem 0 6rem 0;
 }
 .sub-title > h2 {
   font-weight: 800;
   font-size: 7.5rem;
   color: #ad7252;
 }
-.sub-title > p {
+.sub-title > .sub-title-text-1 {
   font-weight: 500;
   font-size: 2.8rem;
+}
+.sub-title > .sub-title-text-2 {
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: #a5806c;
+  padding-top: 1.6rem;
 }
 /* .sub-full-box {
   background-color: #f6f1e9;

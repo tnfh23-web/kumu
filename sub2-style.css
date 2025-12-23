@@ -55,6 +55,144 @@ body {
 .sub_page_bakery {
   position: relative;
 }
+/* 포인트로 줄 폰트 */
+.point-font {
+  font-family: "YeogiOttaeJalnan", sans-serif;
+}
+/* html 기본 설정 */
+html {
+  font-family: "pretendard", sans-serif;
+  font-size: max(0.52083333vw, 10px);
+  overflow-x: hidden;
+}
+/* header 시작 */
+.mobile-header {
+  display: none;
+}
+.dim-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.dim-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header {
+  width: 100%;
+  height: 8rem;
+  font-size: 1.8rem;
+  position: fixed;
+  top: 0;
+  transition: all 0.2s;
+  z-index: 9999;
+  background-color: #fff;
+}
+.top-bar {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 12rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+#menu_bg {
+  width: 100%;
+  height: 20rem;
+  position: absolute;
+  z-index: 1;
+  top: 8rem;
+  background-color: #fff;
+}
+.top-bar > .menu {
+  width: 55rem;
+  height: 100%;
+  z-index: 1;
+}
+
+.language-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  font-size: 1.6rem;
+  border: 1px solid #ad7252;
+  height: 4rem;
+  width: 10.3rem;
+}
+.language-box a {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  color: #ad7252;
+}
+.top-bar nav > ul {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+.top-bar ul li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-bar nav > ul > li {
+  height: 100%;
+}
+
+.top-bar ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: #ac753e;
+  font-weight: 500;
+}
+.top-bar ul li ul {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 9rem;
+  left: 50%;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  height: 18.6rem;
+}
+.top-bar ul li ul li a {
+  display: block;
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  opacity: 0.6;
+}
+.top-bar ul li ul li a:hover {
+  opacity: 1;
+}
+.sidebar-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+/* header 끝 */
 
 /* -------------------- 타이틀 -------------------- */
 .sub_page_header {
@@ -153,7 +291,7 @@ body {
 .product_container {
   background-color: #f6f1e9;
   border-radius: 30px;
-  padding: 100px 120px 0px 120px;
+  padding: 100px 120px 210px 120px;
   margin-top: -40px;
 }
 
@@ -284,3 +422,57 @@ body {
 .goods_product_card:hover .goods_product_img_wrap img {
   transform: scale(1.05); /* hover 이미지 커지는 크기 */
 }
+/* 풋터 시작 */
+footer {
+  color: #f2ebe1;
+  border-radius: 10rem 10rem 0 0;
+  background-color: #8f6047;
+  display: flex;
+  gap: 6rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 5rem;
+}
+.footer-text-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.footer-title-box {
+  padding-bottom: 1.6rem;
+}
+.footer-title-box p {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.footer-middle-box {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.6rem;
+}
+.icon-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.6rem;
+}
+.icon-box .fa-kakao-talk {
+  font-size: 2rem;
+}
+.icon-box .fa-instagram {
+  font-size: 2.5rem;
+}
+.footer-last-box {
+  padding-top: 2rem;
+}
+.footer-last-box p {
+  font-size: 1.6rem;
+}
+
+/* 풋터 끝 */

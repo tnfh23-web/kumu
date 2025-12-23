@@ -372,7 +372,6 @@ body {
   color: #f4ede4;
 }
 .section-2-button-box {
-  padding-top: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -425,7 +424,9 @@ body {
   text-align: center;
   width: 35.7rem;
 }
-
+.section-2-swiper .swiper-slide img:hover {
+  transform: scale(1.05);
+}
 .section-2-swiper p {
   font-size: 1.4rem;
   font-weight: 400;
@@ -611,18 +612,18 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
   z-index: 0;
 }
 .section-4 .img-card-box:hover::before {
   background-color: #3c3c3c90;
-  border-radius: 0.7rem;
+  border-radius: 1.6rem;
 }
 .section-4 .img-card-box:hover .hover-text {
   opacity: 1;
 }
 .section-4 .img-card-box:hover img {
-  border-radius: 0.7rem;
+  border-radius: 1.6rem;
 }
 .section-4 .hover-text {
   width: 100%;
@@ -688,6 +689,11 @@ body {
 .section-5 img {
   width: 29rem;
   height: 29rem;
+  filter: brightness(0.8);
+  transition: all 0.3s;
+}
+.section-5 img:hover {
+  filter: brightness(1);
 }
 @keyframes marquee {
   0% {
@@ -761,7 +767,6 @@ body {
   }
 }
 /* 섹션 디바이더 3 끝  */
-/* 풋터 시작 */
 
 /* 풋터 시작 */
 footer {
@@ -1017,13 +1022,13 @@ footer {
   .section-2 .tab_btn li a {
     display: inline-block;
     font-size: 1.4rem;
-    padding: 1.2rem 2.4rem;
+    padding: 1.4rem 2.4rem;
   }
 
   .section-2 .tab_btn li::before {
     margin: auto;
     width: 7.2rem;
-    height: 3.4rem;
+    height: 3.5rem;
     background-position: center;
     background-size: contain;
     opacity: 0;
@@ -1313,20 +1318,13 @@ footer {
     font-size: 1.1rem;
     padding: 0.8rem 1.2rem;
   }
-
+  .section-2 .tab_btn li.active::before {
+    background-image: url("img/sec_2/mobile_tab_button.svg");
+  }
   .section-2 .tab_btn li::before {
     margin: auto;
-    width: 7.2rem;
-    height: 3.4rem;
-    background-position: center;
-    background-size: contain;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-
-  .section-2 .tab_btn li.active::before {
-    background-image: url("img/sec_2/tablet_tab_button.png");
-    opacity: 1;
+    width: 5.3rem;
+    height: 2.9rem;
   }
   .section-2 .section-2-tablet-button-box {
     padding-top: 2.7rem;

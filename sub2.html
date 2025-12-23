@@ -5,10 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>kumu</title>
     <link rel="stylesheet" href="sub2-style.css" />
+    <link rel="stylesheet" href="variable.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="sub-2-script.js" defer></script>
   </head>
   <body>
+    <!-------------------------------------------------------------- 헤더 ---------------------------------------->
+    <header class="header nav-down point-font">
+      <div id="menu_bg"></div>
+      <div class="top-bar">
+        <a href="index.html">
+          <div class="logo-box"><img src="img/header/logo_svg.svg" alt="로고 이미지" /></div>
+        </a>
+        <nav class="menu">
+          <ul class="navi">
+            <li>
+              <a href="#"><span>브랜드</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#"><span>브랜드 스토리</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>공간소개</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><span>메뉴</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#"><span>전체 상품</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>NEW</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>BEST</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>굿즈</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><span>쿠무 소식</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#"><span>시즌</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>클래스</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>이벤트</span></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><span>고객지원</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#"><span>매장 안내</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>오시는 길</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>클래스 예약</span></a>
+                </li>
+                <li>
+                  <a href="#"><span>FAQ</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div class="language-box">
+          <a href="#">KO <img src="img/sub-img/sub-img-3.svg" alt="언어 아이콘" /></a>
+        </div>
+      </div>
+    </header>
+
+    <!-------------------------------------------------------------- 모바일 헤더 ---------------------------------------->
+    <header class="mobile-header point-font">
+      <div class="top-bar">
+        <a href="index.html"
+          ><div class="logo-box"><img src="img/header/logo_svg.svg" alt="로고 이미지" /></div
+        ></a>
+        <div class="sidebar-menu-button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+    <nav class="sidebar-menu">
+      <div class="sidebar-close"><span></span><span></span></div>
+      <ul class="sidebar-menu-list-box">
+        <li class="sidebar-menu-list sidebar-menu-list-1">
+          <a href="#"><span>브랜드</span></a>
+          <ul class="sidebar-menu-list-1-sub sidebar-menu-list-1-sub-1">
+            <li>
+              <a href="#"><span>브랜드 스토리</span></a>
+            </li>
+            <li>
+              <a href="#"><span>공간소개</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sidebar-menu-list sidebar-menu-list-2">
+          <a href="#"><span>메뉴</span></a>
+          <ul class="sidebar-menu-list-1-sub sidebar-menu-list-1-sub-1">
+            <li>
+              <a href="#"><span>전체 상품</span></a>
+            </li>
+            <li>
+              <a href="#"><span>NEW</span></a>
+            </li>
+            <li>
+              <a href="#"><span>BEST</span></a>
+            </li>
+            <li>
+              <a href="#"><span>굿즈</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sidebar-menu-list sidebar-menu-list-3">
+          <a href="#"><span>쿠무 소식</span></a>
+          <ul class="sidebar-menu-list-1-sub sidebar-menu-list-1-sub-1">
+            <li>
+              <a href="#"><span>시즌</span></a>
+            </li>
+            <li>
+              <a href="#"><span>클래스 예약</span></a>
+            </li>
+            <li>
+              <a href="#"><span>이벤트</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="text-box">
+        <p><a href="#">매장 안내</a></p>
+        <p><a href="#">FAQ</a></p>
+        <p><a href="#">오시는 길</a></p>
+      </div>
+    </nav>
     <main class="sub_prod">
       <section class="sub_page_bakery">
         <!-- 타이틀 -->
@@ -280,5 +422,31 @@
         </div>
       </section>
     </main>
+    <footer>
+      <div class="footer-logo-box">
+        <img src="img/footer/footer-logo.png" alt="" />
+      </div>
+      <div class="footer-text-box">
+        <div class="footer-title-box">
+          <p>쿠무카페</p>
+        </div>
+        <div class="footer-middle-box">
+          <p>서울특별시 크림구 챕터로 12, 1층 (쿠무동)</p>
+          <p>
+            매장 번호 02-1234-5678 <br />
+            사업자 등록 번호 000-00-00000
+          </p>
+          <p>평일 10:00-21:00 / 주말 10:00-22:00</p>
+          <p>hello@Kumucafe.com</p>
+        </div>
+        <div class="icon-box">
+          <a href="#"><i class="fa-brands fa-kakao-talk"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="footer-last-box">
+          <p>© 2025 KUMU. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
