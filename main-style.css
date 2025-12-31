@@ -118,9 +118,12 @@ body {
 
 .fixed-reserve-btn {
   position: fixed;
-  bottom: 10rem;
+  bottom: 5rem;
   right: 3rem;
   z-index: 9999;
+}
+.fixed-reserve-btn:hover img {
+  transform: scale(110%);
 }
 .fixed-reserve-btn img {
   width: 9rem;
@@ -153,7 +156,7 @@ body {
   width: 100%;
   height: max-content;
   font-size: 1.8rem;
-  position: fixed;
+  position: relative;
   top: 0;
   transition: all 0.2s;
   z-index: 9999;
@@ -164,6 +167,8 @@ body {
   height: 4rem;
   background-color: #ad7252;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .header .promo-text {
@@ -189,6 +194,9 @@ body {
   opacity: 1;
 }
 .top-bar {
+  position: fixed;
+  top: 4rem;
+  left: 0;
   width: 100%;
   box-sizing: border-box;
   padding: 0 12rem;
@@ -197,13 +205,16 @@ body {
   justify-content: space-between;
   text-align: center;
   align-items: center;
-  position: relative;
   z-index: 2;
+  background-color: #fff;
+}
+.header.is-promo-hidden .top-bar {
+  top: 0;
 }
 #menu_bg {
   width: 100%;
-  height: 20rem;
-  position: absolute;
+  height: 24rem;
+  position: fixed;
   z-index: 1;
   top: 8rem;
   background-color: #fff;
@@ -290,7 +301,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: start;
-  padding-top: 11rem;
+  padding-top: 15rem;
 }
 .section-1-swiper {
   width: 100%;
@@ -565,7 +576,6 @@ body {
 }
 .divider-1 .marquee-top {
   display: flex;
-  gap: 2rem;
   width: max-content;
   animation: marquee 30s linear infinite;
 }
@@ -573,10 +583,10 @@ body {
   font-size: 6.4rem;
   color: transparent;
   -webkit-text-stroke: 1px #ad7252;
+  margin-right: 2rem;
 }
 .divider-1 .marquee-bottom {
   display: flex;
-  gap: 2rem;
   width: max-content;
   animation: marquee 30s linear infinite;
   animation-direction: reverse;
@@ -584,6 +594,7 @@ body {
 .divider-1 .marquee-bottom span {
   font-size: 6.4rem;
   color: #dab885;
+  margin-right: 2rem;
 }
 .divider-1 .divider-1-back {
   position: absolute;
@@ -708,12 +719,14 @@ body {
 }
 .section-5 .marquee-track {
   display: flex;
-  gap: 2.4rem;
   width: max-content;
   animation: marquee 30s linear infinite;
 }
 .section-5 .marquee-box:hover .marquee-track {
   animation-play-state: paused;
+}
+.section-5 .marquee-track a {
+  margin-right: 2.4rem;
 }
 .section-5 img {
   width: 29rem;
@@ -857,7 +870,7 @@ footer {
   }
   .mobile-header {
     display: block;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -866,6 +879,7 @@ footer {
     z-index: 99999;
   }
   .mobile-header .promo-banner {
+    position: relative;
     width: 100%;
     height: 3rem;
     background-color: #ad7252;
@@ -895,11 +909,17 @@ footer {
     opacity: 1;
   }
   .mobile-header .top-bar {
+    position: fixed;
+    top: 3rem;
+    left: 0;
     height: 6.3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
+  }
+  .mobile-header.is-promo-hidden .top-bar {
+    top: 0;
   }
   .sidebar-menu {
     display: flex;
@@ -1320,6 +1340,9 @@ footer {
 /* 반응형 375 */
 
 @media (max-width: 375px) {
+  .mobile-header .top-bar {
+    top: 2.5rem;
+  }
   .mobile-header .promo-banner {
     height: 2.5rem;
   }

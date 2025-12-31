@@ -19,6 +19,37 @@ document.querySelectorAll(".promo-text").forEach((promoBox) => {
 
 // 프로모션 끝
 
+// 프로모션 헤더 고정
+function updateHeader() {
+  const sec1 = document.querySelector(".section-1");
+  const pcHeader = document.querySelector(".header");
+  const moHeader = document.querySelector(".mobile-header");
+
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const header = isMobile ? moHeader : pcHeader;
+
+  // 헤더가 없으면 종료
+  if (!header) return;
+
+  const hide = window.scrollY > 10;
+  header.classList.toggle("is-promo-hidden", hide);
+
+  // 섹션1 패딩(원하는 값으로 조절)
+  if (!sec1) return;
+
+  if (isMobile) {
+    // 모바일: promo(3rem) + top-bar(6.3rem) = 9.3rem
+    sec1.style.paddingTop = hide ? "6.3rem" : "9.3rem";
+  } else {
+    // PC: promo(4rem) + top-bar(8rem) = 12rem
+    sec1.style.paddingTop = hide ? "8rem" : "12rem";
+  }
+}
+
+window.addEventListener("scroll", updateHeader, { passive: true });
+window.addEventListener("load", updateHeader);
+window.addEventListener("resize", updateHeader);
+
 $(".navi>li")
   .mouseenter(function () {
     $(".submenu").stop().fadeIn(300);

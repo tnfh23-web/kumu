@@ -91,7 +91,7 @@ html {
   width: 100%;
   height: max-content;
   font-size: 1.8rem;
-  position: fixed;
+  position: relative;
   top: 0;
   transition: all 0.2s;
   z-index: 9999;
@@ -102,6 +102,8 @@ html {
   height: 4rem;
   background-color: #ad7252;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .header .promo-text {
@@ -127,6 +129,9 @@ html {
   opacity: 1;
 }
 .top-bar {
+  position: fixed;
+  top: 4rem;
+  left: 0;
   width: 100%;
   box-sizing: border-box;
   padding: 0 12rem;
@@ -135,13 +140,16 @@ html {
   justify-content: space-between;
   text-align: center;
   align-items: center;
-  position: relative;
   z-index: 2;
+  background-color: #fff;
+}
+.header.is-promo-hidden .top-bar {
+  top: 0;
 }
 #menu_bg {
   width: 100%;
-  height: 20rem;
-  position: absolute;
+  height: 24rem;
+  position: fixed;
   z-index: 1;
   top: 8rem;
   background-color: #fff;
