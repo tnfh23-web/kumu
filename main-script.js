@@ -57,7 +57,15 @@ $(".navi>li")
     $(".submenu").stop().fadeOut(300);
     $("#menu_bg").stop().fadeOut(300);
   });
-
+$("#menu_bg")
+  .mouseenter(function () {
+    $(".submenu").stop().fadeIn(300);
+    $("#menu_bg").stop().fadeIn(300);
+  })
+  .mouseleave(function () {
+    $(".submenu").stop().fadeOut(300);
+    $("#menu_bg").stop().fadeOut(300);
+  });
 function mobiletopbar_init() {
   $(".sidebar-menu-button").click(function () {
     $(".sidebar-menu").addClass("active");
