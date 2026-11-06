@@ -1,6 +1,30 @@
-/* GSAP animates this separate property so Swiper and hover transforms stay independent. */
-[data-kumu-entry] {
-  translate: var(--kumu-entry-translate, none);
+/* Move only individual items, leaving carousel tracks and large images in place. */
+[data-kumu-entry="pending"] {
+  opacity: 0;
+}
+
+[data-kumu-entry="playing"] {
+  --kumu-entry-distance: 28px;
+  animation: kumu-entry 950ms cubic-bezier(.25, .55, .35, 1) both;
+  animation-delay: calc(var(--kumu-entry-delay, 0) * 145ms);
+}
+
+@keyframes kumu-entry {
+  from {
+    opacity: 0;
+    translate: 0 var(--kumu-entry-distance);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  [data-kumu-entry="playing"] {
+    --kumu-entry-distance: 16px;
+    animation-delay: calc(var(--kumu-entry-delay, 0) * 110ms);
+  }
 }
 
 .sidebar-menu.active[data-lenis-prevent] {
