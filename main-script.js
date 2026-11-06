@@ -235,15 +235,44 @@ new Swiper(".goods-swiper", {
 // 섹션 2 끝
 // 섹션 3 시작
 function section3_toggle_init() {
-  $(".section-3 .arrow-box a").on("click", function (e) {
-    e.preventDefault();
+  const panels = document.querySelector(".new-product-panels");
+  if (!panels) return;
+  let switching = false;
 
-    const $section = $(this).closest(".section-3-box");
-    const $current = $section.find(".right-content.is-active");
-    const $next = $current.hasClass("right-content-1") ? $section.find(".right-content-2") : $section.find(".right-content-1");
+  panels.addEventListener("click", async (event) => {
+    const arrow = event.target.closest(".arrow-box a");
+    if (!arrow) return;
+    event.preventDefault();
+    if (switching) return;
 
-    $current.removeClass("is-active");
-    $next.addClass("is-active");
+    const current = panels.querySelector(".right-content.is-active");
+    const next = panels.querySelector(".right-content:not(.is-active)");
+    if (!current?.contains(arrow) || !next) return;
+
+    switching = true;
+    const direction = [...current.querySelectorAll(".arrow-box a")].indexOf(arrow);
+    const cards = [...next.querySelectorAll(".right-card")];
+    await Promise.allSettled(cards.flatMap((card) =>
+      [...card.querySelectorAll("img")].map((img) => img.decode())
+    ));
+
+    const keepFocus = document.activeElement === arrow;
+    current.classList.replace("is-active", "is-leaving");
+    next.classList.add("is-active");
+    if (keepFocus) next.querySelectorAll(".arrow-box a")[direction]?.focus({ preventScroll: true });
+    current.inert = true;
+
+    try {
+      const animations = cards.map((card, index) => card.animate(
+        [{ opacity: 0 }, { opacity: 1 }],
+        { duration: 300, delay: index * 35, easing: "cubic-bezier(.2,.65,.25,1)", fill: "backwards" }
+      ));
+      await Promise.allSettled(animations.map((animation) => animation.finished));
+    } finally {
+      current.classList.remove("is-leaving");
+      current.inert = false;
+      switching = false;
+    }
   });
 }
 

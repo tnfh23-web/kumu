@@ -11,10 +11,15 @@
     <!-- 슬릭 슬라이드 -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-    <!-- aos  -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- 스와이퍼 라이브러리 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="vendor/lenis.css" />
+    <link rel="stylesheet" href="motion.css" />
+    <script src="vendor/gsap.min.js" defer></script>
+    <script src="vendor/ScrollTrigger.min.js" defer></script>
+    <script src="vendor/lenis.min.js" defer></script>
+    <script src="motion.js" defer></script>
   </head>
   <body onclick="return false">
     <!-------------------------------------------------------------- 헤더 ---------------------------------------->
@@ -380,6 +385,7 @@
               <img src="img/sec_3/sec_3_left_img.png" alt="홍보물이미지" />
             </a>
           </div>
+          <div class="new-product-panels">
           <div class="right-content right-content-1 is-active">
             <div class="right-card-top">
               <div class="right-card-title right-card-1">
@@ -453,6 +459,7 @@
                 <a href="#"><p>쿠무 산책 에코백</p></a>
               </div>
             </div>
+          </div>
           </div>
           <div class="mobile-box">
             <div class="right-swiper-title-box">
@@ -654,11 +661,11 @@
       </section>
       <!-- 섹션 디바이더 슬로건 -->
       <div class="divider-3 divider-3-Slogan point-font">
-        <h2 data-aos="fade-up" data-aos-delay="0" data-aos-duration="500">
+        <h2>
           사계절을 함께<br />
           오늘을 우리의 추억으로
         </h2>
-        <p data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">당신 곁에 기억을 남기는 곳</p>
+        <p>당신 곁에 기억을 남기는 곳</p>
         <div class="back-1"></div>
         <div class="back-2"></div>
       </div>
@@ -690,14 +697,6 @@
         </div>
       </div>
     </footer>
-    <!-- aos js -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- aos 자바 -->
-    <script>
-      AOS.init();
-    </script>
-
     <!-- 제이쿼리 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- 스와이퍼 js -->

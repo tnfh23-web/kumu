@@ -1,0 +1,41 @@
+/* GSAP animates this separate property so Swiper and hover transforms stay independent. */
+[data-kumu-entry] {
+  translate: var(--kumu-entry-translate, none);
+}
+
+.sidebar-menu.active[data-lenis-prevent] {
+  overflow-y: auto;
+}
+
+@media (min-width: 376px) {
+  .new-product-panels {
+    display: grid;
+  }
+
+  .section-3 .new-product-panels .right-content {
+    display: flex;
+    grid-area: 1 / 1;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .section-3 .new-product-panels .right-content.is-active {
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 1;
+  }
+
+  .section-3 .new-product-panels .right-content.is-leaving {
+    visibility: visible;
+  }
+
+  .new-product-panels .is-leaving .right-card-title {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 375px) {
+  .new-product-panels {
+    display: none;
+  }
+}
