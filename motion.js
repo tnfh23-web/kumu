@@ -1,8 +1,13 @@
 (() => {
   const sections = [
-    [".section-2", [".section-2-title-box", ".tab_btn", ".section-2-swiper-wrap.active .swiper-slide:nth-child(-n+3) > img"]],
-    [".new-product-panels", [".is-active .right-card-title h2", ".is-active .right-card-title p", ".is-active .right-card img"]],
-    [".section-3 .mobile-box", [".right-swiper-title-box", ".right-swiper .swiper-slide-active img", ".right-swiper-control"]],
+    [".section-2", [".section-2-title-box", ".tab_menu"]],
+    [".section-2-swiper-wrap.active .section-2-swiper", [".swiper-slide"]],
+    [".section-2-tablet-button-box", [":scope > div"]],
+    [".new-product-panels .is-active .right-card-top", [".right-card-title", ".right-card"]],
+    [".new-product-panels .is-active .right-card-bottom", [".right-card"]],
+    [".section-3 .mobile-box", [".right-swiper-title-box"]],
+    [".section-3 .right-swiper", [".swiper-slide"]],
+    [".section-3 .mobile-box", [".right-swiper-control"]],
     [".section-4", [".sec-4-title", ".img-card-box:nth-child(-n+2) img, .event-swiper .swiper-slide-active img"]],
     [".section-5", [".sec-5-title"]],
     [".divider-3", ["h2", "p"]],
@@ -15,6 +20,10 @@
     [".product_container", [".prod_wrap.active > div:nth-child(-n+4) .product_name"]],
     ["footer", [".footer-logo-box", ".footer-text-box"]],
   ];
+  const menuControls = [
+    ".section-2 .tab_menu", ".section-2 .section-2-swiper-wrap",
+    ".section-3 .arrow-box", ".section-3 .right-swiper", ".section-3 .right-swiper-control",
+  ].join(", ");
 
   function prepareEntries() {
     if (!window.IntersectionObserver) return () => {};
@@ -48,10 +57,13 @@
       const section = document.querySelector(selector);
       if (!section?.getClientRects().length) continue;
 
+      const frame = section.matches(".swiper") ? section.getBoundingClientRect() : null;
       const targets = parts.flatMap((part) => [...section.querySelectorAll(part)])
         .filter((element) => {
           const box = element.getBoundingClientRect();
-          return box.width && box.height && box.bottom > 0 && box.right > 0 && box.left < innerWidth;
+          const left = Math.max(0, frame?.left ?? 0);
+          const right = Math.min(innerWidth, frame?.right ?? innerWidth);
+          return box.width && box.height && box.bottom > 0 && box.right > left + 1 && box.left < right - 1;
         });
       if (targets.length) batches.push(targets);
     }
@@ -68,17 +80,35 @@
     const onAnimationEnd = (event) => {
       if (event.animationName === "kumu-entry") finish(event.target);
     };
+    const settleMenuEntry = (event) => {
+      const control = event.target.closest(menuControls);
+      if (!control) return;
+
+      // The tab, carousel or NEW crossfade takes over as soon as it is used.
+      const section = control.closest(".section-2, .section-3");
+      section.querySelectorAll("[data-kumu-entry]").forEach(finish);
+      for (const leader of groups.keys()) {
+        if (!section.contains(leader)) continue;
+        observer.unobserve(leader);
+        groups.delete(leader);
+      }
+    };
     const onFocus = (event) => {
+      settleMenuEntry(event);
       const target = event.target.closest("[data-kumu-entry]");
       if (target) finish(target);
     };
     document.addEventListener("animationend", onAnimationEnd);
     document.addEventListener("focusin", onFocus);
+    document.addEventListener("pointerdown", settleMenuEntry, true);
+    document.addEventListener("click", settleMenuEntry, true);
 
     return () => {
       observer.disconnect();
       document.removeEventListener("animationend", onAnimationEnd);
       document.removeEventListener("focusin", onFocus);
+      document.removeEventListener("pointerdown", settleMenuEntry, true);
+      document.removeEventListener("click", settleMenuEntry, true);
       prepared.forEach(finish);
     };
   }
