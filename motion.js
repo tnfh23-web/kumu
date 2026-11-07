@@ -130,13 +130,65 @@
     };
   }
 
+  function prepareNearbyMedia() {
+    if (!window.IntersectionObserver || !window.requestIdleCallback) return () => {};
+    const queue = [];
+    let idle = 0, stopped = false, decoding = false;
+    const schedule = () => {
+      if (stopped || idle || decoding || !queue.length) return;
+      idle = requestIdleCallback(async () => {
+        idle = 0;
+        const image = queue.shift();
+        decoding = true;
+        image.loading = "eager";
+        try { await image.decode(); } catch { /* Native rendering remains available. */ }
+        decoding = false;
+        schedule();
+      });
+    };
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting || !entry.boundingClientRect.width) continue;
+        observer.unobserve(entry.target);
+        queue.push(entry.target);
+      }
+      schedule();
+    }, { rootMargin: `${Math.min(4000, innerHeight * 4)}px 0px` });
+    document.querySelectorAll('img[loading="lazy"]').forEach(image => {
+      if (/\.(webp|png|jpe?g)(?:[?#]|$)/i.test(image.getAttribute("src") || "")) observer.observe(image);
+    });
+    return () => { stopped = true; observer.disconnect(); if (idle) cancelIdleCallback(idle); queue.length = 0; };
+  }
+
   function mount(playEntries) {
     if (dispose) return;
+    let wheelDirection = 0, nativeWheelUntil = 0;
     const lenis = window.Lenis
-      ? new window.Lenis({ smoothWheel: true, lerp: 0.08, autoRaf: true })
+      ? new window.Lenis({
+          smoothWheel: true, lerp: 0.08, autoRaf: true, respectReducedMotion: false,
+          virtualScroll({ deltaX, deltaY, event }) {
+            if (event.type !== "wheel" || event.ctrlKey || Math.abs(deltaY) <= Math.abs(deltaX) || lenis.isStopped || lenis.isLocked) return true;
+            const direction = Math.sign(deltaY), now = performance.now();
+            const burstLimit = Math.max(600, innerHeight * .75);
+            const backlog = Math.abs(lenis.targetScroll - lenis.animatedScroll);
+            // Keep full wheel distance while letting the compositor handle intense bursts.
+            if (Math.abs(deltaY) > burstLimit || backlog > burstLimit || now < nativeWheelUntil) {
+              if (lenis.isScrolling === "smooth") lenis.scrollTo(lenis.scroll, { immediate: true });
+              nativeWheelUntil = now + 160;
+              wheelDirection = direction;
+              return false;
+            }
+            if (wheelDirection && direction !== wheelDirection && lenis.isScrolling === "smooth") {
+              lenis.scrollTo(lenis.scroll, { immediate: true });
+            }
+            wheelDirection = direction;
+            return true;
+          }
+        })
       : null;
     const cleanupEntries = playEntries ? prepareEntries() : () => {};
     const cleanupLoops = pauseOffscreenLoops();
+    const cleanupMedia = prepareNearbyMedia();
     const headerRoots = [...document.querySelectorAll(".header, .mobile-header, .sidebar-menu")];
     const allowHeaderNavigation = event => {
       const link = event.target.closest("a[href]");
@@ -175,6 +227,7 @@
     dispose = () => {
       cleanupEntries();
       cleanupLoops();
+      cleanupMedia();
       headerRoots.forEach(element => element.removeEventListener("click", allowHeaderNavigation));
       footerObserver?.disconnect();
       reserve?.classList.remove("is-over-footer");

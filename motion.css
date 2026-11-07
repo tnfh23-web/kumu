@@ -89,3 +89,7 @@
     display: none;
   }
 }
+
+/* Header space is reserved before scripts load and stays stable during scrolling. */
+.section-1 { padding-top: 12rem; }
+@media (width < 769px) { .section-1 { padding-top: 9.3rem; } }

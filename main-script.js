@@ -17,35 +17,28 @@ document.querySelectorAll(".promo-text").forEach((promoBox) => {
   }, 3000);
 });
 // 프로모션 헤더 고정
+const headerElements = {
+  section: document.querySelector('.section-1'),
+  desktop: document.querySelector('.header'),
+  mobile: document.querySelector('.mobile-header')
+};
+const headerBreakpoint = window.matchMedia('(width < 769px)');
+let previousHeaderState, previousHeaderViewport;
 function updateHeader() {
-  const sec1 = document.querySelector(".section-1");
-  const pcHeader = document.querySelector(".header");
-  const moHeader = document.querySelector(".mobile-header");
-
-  const isMobile = window.matchMedia("(width < 769px)").matches;
-  const header = isMobile ? moHeader : pcHeader;
-
-  // 헤더가 없으면 종료
-  if (!header) return;
-
-  const hide = window.scrollY > 10;
-  header.classList.toggle("is-promo-hidden", hide);
-
-  // 섹션1 패딩(원하는 값으로 조절)
-  if (!sec1) return;
-
-  if (isMobile) {
-    // 모바일: promo(3rem) + top-bar(6.3rem) = 9.3rem
-    sec1.style.paddingTop = hide ? "6.3rem" : "9.3rem";
-  } else {
-    // PC: promo(4rem) + top-bar(8rem) = 12rem
-    sec1.style.paddingTop = hide ? "8rem" : "12rem";
+  const mobile = headerBreakpoint.matches, hidden = window.scrollY > 10;
+  const state = `${mobile}:${hidden}`;
+  if (state === previousHeaderState) return;
+  previousHeaderState = state;
+  (mobile ? headerElements.mobile : headerElements.desktop)?.classList.toggle('is-promo-hidden', hidden);
+  // Reserve the original opening space. Shrinking it during scroll shifts the page.
+  if (mobile !== previousHeaderViewport && headerElements.section) {
+    headerElements.section.style.paddingTop = mobile ? '9.3rem' : '12rem';
+    previousHeaderViewport = mobile;
   }
 }
-
-window.addEventListener("scroll", updateHeader, { passive: true });
-window.addEventListener("load", updateHeader);
-window.addEventListener("resize", updateHeader);
+updateHeader();
+window.addEventListener('scroll', updateHeader, { passive: true });
+window.addEventListener('resize', updateHeader);
 
 // 헤더 시작
 $(".navi>li")
