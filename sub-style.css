@@ -538,6 +538,17 @@ input[type="radio"] {
 .last-text-box > ol > li > ul {
   padding-left: 3rem;
 }
+.privacy-details { display: flow-root; overflow: hidden; }
+.privacy-details > ol > li > ul { padding-left: 3rem; }
+.sub-last-box .plus-button { border: 0; }
+.sub-last-box .plus-button[hidden] { display: none; }
+@media (width < 769px) {
+  .sub-last-box > .last-text-box { display: block; }
+  .sub-last-box .plus-button:not([hidden]) {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 44px; line-height: 1.4;
+  }
+}
 .last-text-box li span {
   line-height: 2.3rem;
   display: inline;

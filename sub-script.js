@@ -85,20 +85,35 @@ $(".sidebar-menu-list > a").click(function (e) {
 
   submenu.slideToggle();
 });
-function plus_button_init() {
-  $(".plus-button").click(function () {
-    const ol = $(".last-text-box > ol");
-
-    ol.toggleClass("active");
-
-    // 버튼 텍스트 바꾸기
-    if (ol.hasClass("active")) {
-      $(this).text("접기");
-    } else {
-      $(this).text("더 보기");
+function privacyAccordion() {
+  const box = document.querySelector('.last-text-box');
+  const button = box.querySelector('.plus-button');
+  const panel = box.querySelector('.privacy-details');
+  const compact = window.matchMedia('(width < 769px)');
+  let mobileOpen = false, animation;
+  function display(animate = false) {
+    const open = !compact.matches || mobileOpen;
+    const from = panel.getBoundingClientRect().height;
+    animation?.cancel();
+    button.hidden = !compact.matches;
+    button.setAttribute('aria-expanded', String(open));
+    button.textContent = open ? '접기' : '더 보기';
+    panel.setAttribute('aria-hidden', String(!open));
+    panel.inert = !open;
+    panel.style.height = 'auto';
+    const to = open ? panel.scrollHeight : 0;
+    panel.style.height = open ? 'auto' : '0px';
+    if (animate && panel.animate) {
+      const current = panel.animate([{ height: from + 'px' }, { height: to + 'px' }], {
+        duration: 320, easing: 'cubic-bezier(.2,.65,.25,1)'
+      });
+      animation = current;
+      current.finished.catch(() => {}).then(() => { if (animation === current) animation = null; });
     }
-  });
+  }
+  button.addEventListener('click', () => { mobileOpen = !mobileOpen; display(true); });
+  compact.addEventListener('change', () => display());
+  display();
 }
-
-plus_button_init();
+privacyAccordion();
 mobiletopbar_init();

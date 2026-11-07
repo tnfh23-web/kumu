@@ -10,13 +10,13 @@
 
     <!-- 스와이퍼 라이브러리 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="sub-style.css?v=responsive-1" />
+    <link rel="stylesheet" href="sub-style.css?v=catalog-ui-1" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="vendor/lenis.css" />
-    <link rel="stylesheet" href="motion.css?v=responsive-1" />
+    <link rel="stylesheet" href="motion.css?v=catalog-ui-1" />
     <link rel="stylesheet" href="responsive.css?v=tabs-footer-1" />
     <script src="vendor/lenis.min.js" defer></script>
-    <script src="motion.js?v=tabs-footer-1" defer></script>
+    <script src="motion.js?v=catalog-ui-1" defer></script>
   </head>
   <body>
     <!-------------------------------------------------------------- 헤더 ---------------------------------------->
@@ -49,10 +49,10 @@
               </ul>
             </li>
             <li>
-              <a href="#"><span>메뉴</span></a>
+              <a href="sub2.html"><span>메뉴</span></a>
               <ul class="submenu">
                 <li>
-                  <a href="#"><span>전체 상품</span></a>
+                  <a href="sub2.html"><span>전체 상품</span></a>
                 </li>
                 <li>
                   <a href="#"><span>NEW</span></a>
@@ -72,7 +72,7 @@
                   <a href="#"><span>시즌</span></a>
                 </li>
                 <li>
-                  <a href="#"><span>클래스</span></a>
+                  <a href="sub1.html"><span>클래스</span></a>
                 </li>
                 <li>
                   <a href="#"><span>이벤트</span></a>
@@ -89,7 +89,7 @@
                   <a href="#"><span>오시는 길</span></a>
                 </li>
                 <li>
-                  <a href="#"><span>클래스 예약</span></a>
+                  <a href="sub1.html"><span>클래스 예약</span></a>
                 </li>
                 <li>
                   <a href="#"><span>FAQ</span></a>
@@ -145,7 +145,7 @@
           <a href="#"><span>메뉴</span></a>
           <ul class="sidebar-menu-list-1-sub sidebar-menu-list-1-sub-1">
             <li>
-              <a href="#"><span>전체 상품</span></a>
+              <a href="sub2.html"><span>전체 상품</span></a>
             </li>
             <li>
               <a href="#"><span>NEW</span></a>
@@ -165,7 +165,7 @@
               <a href="#"><span>시즌</span></a>
             </li>
             <li>
-              <a href="#"><span>클래스 예약</span></a>
+              <a href="sub1.html"><span>클래스 예약</span></a>
             </li>
             <li>
               <a href="#"><span>이벤트</span></a>
@@ -293,10 +293,12 @@
                 </div>
               </div>
               <div class="sub-last-box">
-                <h2 class="last-box-title">개인정보 수집·이용동의 안내</h2>
+                <h2 class="last-box-title" id="privacy-heading">개인정보 수집·이용동의 안내</h2>
                 <div class="last-text-box">
                   <h2>쿠무(KUMU)는 원데이 클래스 신청을 위해 아래와 같은 개인정보를 수집·이용합니다.</h2>
-                  <ol class-="active" type="1">
+                  <button type="button" class="plus-button" aria-expanded="false" aria-controls="privacy-details" hidden>더 보기</button>
+                  <div class="privacy-details" id="privacy-details" role="region" aria-labelledby="privacy-heading">
+                  <ol type="1">
                     <li>
                       <span>수집 항목</span>
                       <ul>
@@ -329,7 +331,7 @@
                       </ul>
                     </li>
                   </ol>
-                  <div class="plus-button">더 보기</div>
+                  </div>
                 </div>
                 <div class="last-box-button">
                   <h2>개인정보 수집·이용에 동의합니다.</h2>
@@ -389,6 +391,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!-- 자바 불러오기 -->
-    <script src="sub-script.js?v=responsive-1"></script>
+    <script src="sub-script.js?v=catalog-ui-1"></script>
   </body>
 </html>

@@ -16,8 +16,6 @@
     [".sub-right-box", [":scope > div"]],
     [".sub-last-box", [".last-box-title", ".last-text-box"]],
     [".sub-button-box", [".sub-button"]],
-    [".sub_page_bakery", [".sub_page_title", ".sub_page_desc", ".tab_menu"]],
-    [".product_container", [".prod_wrap.active > div:nth-child(-n+4) .product_name"]],
     ["footer", [".footer-logo-box", ".footer-text-box"]],
   ];
   const menuControls = [
@@ -137,6 +135,18 @@
       : null;
     const cleanupEntries = playEntries ? prepareEntries() : () => {};
     const cleanupLoops = pauseOffscreenLoops();
+    const headerRoots = [...document.querySelectorAll(".header, .mobile-header, .sidebar-menu")];
+    const allowHeaderNavigation = event => {
+      const link = event.target.closest("a[href]");
+      if (link && !link.getAttribute("href").startsWith("#")) {
+        event.stopPropagation();
+        if (link.closest(".sidebar-menu")) {
+          link.closest(".sidebar-menu").classList.remove("active");
+          document.querySelector(".dim-overlay")?.classList.remove("active");
+        }
+      }
+    };
+    headerRoots.forEach(element => element.addEventListener("click", allowHeaderNavigation));
     const reserve = document.querySelector(".fixed-reserve-btn");
     const footer = document.querySelector("footer");
     const footerObserver = reserve && footer && window.IntersectionObserver
@@ -163,6 +173,7 @@
     dispose = () => {
       cleanupEntries();
       cleanupLoops();
+      headerRoots.forEach(element => element.removeEventListener("click", allowHeaderNavigation));
       footerObserver?.disconnect();
       reserve?.classList.remove("is-over-footer");
       sidebarObserver?.disconnect();

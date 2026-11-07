@@ -88,29 +88,191 @@ $(".sidebar-menu-list > a").click(function (e) {
 
 // 헤더 끝
 
-function Box1__init() {
-  $(".tab_menu > ul > li").click(function (e) {
-    e.preventDefault();
+// Catalog cards share one controller for entry and tab transitions.
+function mountCatalog() {
+  const container = document.querySelector('.product_container');
+  const tabs = [...document.querySelectorAll('.tab_menu .tab_btn li')];
+  const panels = [...container.querySelectorAll('.prod_wrap')];
+  const animations = new Map();
+  const transactions = new Set();
+  let disposed = false, busy = false, requested = null;
+  let active = Math.max(0, panels.findIndex(panel => panel.classList.contains('active')));
+  const cardsOf = panel => [...panel.children];
+  const observer = window.IntersectionObserver ? new IntersectionObserver(entries => {
+    const cards = cardsOf(panels[active]);
+    const visible = entries.filter(entry => entry.isIntersecting && entry.target.dataset.catalogEntry === 'pending' && entry.target.parentElement === panels[active])
+      .map(entry => entry.target).sort((a, b) => cards.indexOf(a) - cards.indexOf(b));
+    reveal(visible);
+  }, { rootMargin: '0px 0px -32px', threshold: 0.04 }) : null;
 
-    let $this = $(this);
-    let thisIndex = $this.index();
-
-    $this.siblings(".active").removeClass("active");
-    $this.addClass("active");
-
-    let newTitle = $this.data("title");
-    let newDesc = $this.data("desc");
-    $("#sub_page_title").text(newTitle);
-    $("#sub_page_desc").text(newDesc);
-
-    let $sub_prod = $this.closest(".sub_prod");
-    let $productContainer = $sub_prod.find(".product_container");
-    console.log("active ", $sub_prod);
-
-    $productContainer.find(".prod_wrap.active").removeClass("active");
-    $productContainer.find(".prod_wrap").eq(thisIndex).addClass("active");
+  function reveal(cards) {
+    cards.forEach((card, index) => {
+      observer?.unobserve(card);
+      if (card.dataset.catalogEntry !== 'pending') return;
+      delete card.dataset.catalogEntry;
+      if (!card.animate) return;
+      card.dataset.catalogEntry = 'playing';
+      const animation = card.animate([{ opacity: 0 }, { opacity: 1 }], {
+        duration: 650, delay: Math.min(index, 5) * 100,
+        easing: 'cubic-bezier(.2,.65,.25,1)', fill: 'backwards'
+      });
+      animations.set(card, animation);
+      animation.finished.catch(() => {}).then(() => {
+        if (animations.get(card) !== animation) return;
+        animations.delete(card);
+        delete card.dataset.catalogEntry;
+      });
+    });
+  }
+  function prepare(panel) {
+    cardsOf(panel).forEach(card => {
+      if (!observer) return;
+      card.dataset.catalogEntry = 'pending';
+      observer.observe(card);
+    });
+  }
+  function revealVisible(panel) {
+    reveal(cardsOf(panel).filter(card => {
+      const box = card.getBoundingClientRect();
+      return box.top < innerHeight && box.bottom > 0;
+    }));
+  }
+  function settle(panel) {
+    cardsOf(panel).forEach(card => {
+      observer?.unobserve(card);
+      animations.get(card)?.cancel();
+      animations.delete(card);
+      delete card.dataset.catalogEntry;
+    });
+  }
+  function select(index) {
+    tabs.forEach((tab, i) => {
+      const selected = i === index;
+      tab.classList.toggle('active', selected);
+      const link = tab.querySelector('a');
+      link.setAttribute('aria-selected', String(selected));
+      link.tabIndex = selected ? 0 : -1;
+    });
+    document.querySelector('#sub_page_title').textContent = tabs[index].dataset.title;
+    document.querySelector('#sub_page_desc').textContent = tabs[index].dataset.desc;
+  }
+  async function switchTo(index) {
+    const outgoing = panels[active], incoming = panels[index];
+    const columns = getComputedStyle(outgoing).gridTemplateColumns.split(' ').length;
+    // Fetch only the first rows before fading; the current menu stays readable meanwhile.
+    await Promise.allSettled(cardsOf(incoming).slice(0, columns * 2).map(async card => {
+      const image = card.querySelector('img');
+      if (!image) return;
+      image.loading = 'eager';
+      try { await image.decode(); } catch { /* Preserve the native image fallback. */ }
+    }));
+    if (disposed || (requested !== null && requested !== index)) return;
+    const fromHeight = outgoing.offsetHeight;
+    const box = { left: outgoing.offsetLeft, top: outgoing.offsetTop, width: outgoing.offsetWidth };
+    const oldVisible = cardsOf(outgoing).filter(card => {
+      const r = card.getBoundingClientRect();
+      return r.top < innerHeight && r.bottom > 0;
+    }).map(card => ({ card, opacity: getComputedStyle(card).opacity }));
+    settle(outgoing);
+    container.style.height = fromHeight + 'px';
+    Object.assign(outgoing.style, { position: 'absolute', left: box.left + 'px', top: box.top + 'px', width: box.width + 'px' });
+    outgoing.classList.replace('active', 'is-leaving');
+    outgoing.inert = true;
+    outgoing.setAttribute('aria-hidden', 'true');
+    prepare(incoming);
+    incoming.classList.add('active');
+    incoming.inert = false;
+    incoming.setAttribute('aria-hidden', 'false');
+    active = index;
+    select(index);
+    const toHeight = incoming.offsetHeight;
+    revealVisible(incoming);
+    const leaving = oldVisible.map(({card, opacity}, i) => card.animate ? card.animate([
+      { opacity }, { opacity: 0 }
+    ], { duration: 350, delay: Math.min(i, 5) * 100, easing: 'ease-out', fill: 'forwards' }) : null).filter(Boolean);
+    const heightAnimation = container.animate && Math.abs(fromHeight - toHeight) > 1
+      ? container.animate([{ height: fromHeight + 'px' }, { height: toHeight + 'px' }], { duration: 380, easing: 'cubic-bezier(.2,.65,.25,1)', fill: 'forwards' }) : null;
+    [...leaving, heightAnimation].filter(Boolean).forEach(animation => transactions.add(animation));
+    try {
+      await Promise.allSettled([...leaving, heightAnimation].filter(Boolean).map(animation => animation.finished));
+    } finally {
+      leaving.forEach(animation => animation.cancel());
+      heightAnimation?.cancel();
+      [...leaving, heightAnimation].filter(Boolean).forEach(animation => transactions.delete(animation));
+      outgoing.classList.remove('is-leaving');
+      ['position', 'left', 'top', 'width'].forEach(property => outgoing.style.removeProperty(property));
+      container.style.removeProperty('height');
+    }
+  }
+  async function request(index) {
+    requested = index;
+    if (busy) return;
+    busy = true;
+    try {
+      while (!disposed && requested !== null) {
+        const next = requested;
+        requested = null;
+        if (next !== active) await switchTo(next);
+      }
+    } catch (error) {
+      panels.forEach(settle);
+      container.style.removeProperty('height');
+      console.error('Kumu catalog transition:', error);
+    } finally { busy = false; }
+  }
+  const click = event => {
+    const tab = event.target.closest('.tab_menu .tab_btn li');
+    if (!tab || !tabs.includes(tab)) return;
+    event.preventDefault();
+    request(tabs.indexOf(tab));
+  };
+  const keydown = event => {
+    const link = event.target.closest('[role="tab"]');
+    const index = tabs.findIndex(tab => tab.contains(link));
+    if (index < 0) return;
+    let next;
+    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+    else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+    else if (event.key === 'Home') next = 0;
+    else if (event.key === 'End') next = tabs.length - 1;
+    else return;
+    event.preventDefault();
+    tabs[next].querySelector('a').focus({ preventScroll: true });
+    request(next);
+  };
+  document.querySelector('.tab_btn').setAttribute('role', 'tablist');
+  tabs.forEach((tab, index) => {
+    const link = tab.querySelector('a');
+    link.id = 'catalog-tab-' + index;
+    link.setAttribute('role', 'tab');
+    link.setAttribute('aria-controls', 'catalog-panel-' + index);
+    panels[index].id = 'catalog-panel-' + index;
+    panels[index].setAttribute('role', 'tabpanel');
+    panels[index].setAttribute('aria-labelledby', link.id);
+    panels[index].setAttribute('aria-hidden', String(index !== active));
+    panels[index].inert = index !== active;
   });
+  select(active);
+  prepare(panels[active]);
+  document.addEventListener('click', click);
+  document.addEventListener('keydown', keydown);
+  return () => {
+    disposed = true;
+    observer?.disconnect();
+    transactions.forEach(animation => animation.cancel());
+    transactions.clear();
+    panels.forEach(settle);
+    panels.forEach(panel => {
+      panel.classList.remove('is-leaving');
+      ['position', 'left', 'top', 'width'].forEach(property => panel.style.removeProperty(property));
+    });
+    container.getAnimations().forEach(animation => animation.cancel());
+    container.style.removeProperty('height');
+    document.removeEventListener('click', click);
+    document.removeEventListener('keydown', keydown);
+  };
 }
-
-Box1__init();
+let cleanupCatalog = mountCatalog();
+window.addEventListener('pagehide', () => cleanupCatalog?.());
+window.addEventListener('pageshow', event => { if (event.persisted) cleanupCatalog = mountCatalog(); });
 mobiletopbar_init();

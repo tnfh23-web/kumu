@@ -326,6 +326,8 @@ html {
 
 /* -------------------- 제품시작 -------------------- */
 .product_container {
+  position: relative;
+  overflow: clip;
   background-color: #f6f1e9;
   border-radius: 30px;
   padding: 100px 120px 210px 120px;
@@ -391,6 +393,11 @@ html {
 
 .prod_wrap.active {
   display: grid;
+}
+.prod_wrap.is-leaving { display: grid; pointer-events: none; }
+.prod_wrap > [data-catalog-entry="pending"] { opacity: 0; }
+@media (width < 769px) {
+  .sub_page_desc { line-height: 1.5; min-height: 3em; }
 }
 
 .bakery_product_card {
