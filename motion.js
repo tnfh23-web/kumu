@@ -137,6 +137,14 @@
       : null;
     const cleanupEntries = playEntries ? prepareEntries() : () => {};
     const cleanupLoops = pauseOffscreenLoops();
+    const reserve = document.querySelector(".fixed-reserve-btn");
+    const footer = document.querySelector("footer");
+    const footerObserver = reserve && footer && window.IntersectionObserver
+      ? new IntersectionObserver(([entry]) => {
+          reserve.classList.toggle("is-over-footer", entry.isIntersecting);
+        }, { rootMargin: "0px 0px 90px 0px" })
+      : null;
+    footerObserver?.observe(footer);
     const sidebar = document.querySelector(".sidebar-menu");
 
     const syncSidebar = () => {
@@ -155,6 +163,8 @@
     dispose = () => {
       cleanupEntries();
       cleanupLoops();
+      footerObserver?.disconnect();
+      reserve?.classList.remove("is-over-footer");
       sidebarObserver?.disconnect();
       window.removeEventListener("resize", syncSidebar);
       lenis?.destroy();

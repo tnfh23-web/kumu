@@ -1,4 +1,47 @@
 /* Preserve the existing 375 / 768 layouts; cover the widths between them. */
+/* One box per tab; background boxes follow the source artwork's exact ratio. */
+.section-2 .tab_btn {
+  --tab-width: 14.1rem;
+  --tab-height: calc(var(--tab-width) * 68 / 141);
+  gap: 2.4rem;
+}
+.section-2 .tab_btn li {
+  flex: 0 0 var(--tab-width);
+  width: var(--tab-width);
+  padding: 0;
+}
+.section-2 .tab_btn li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--tab-height);
+  padding: 0;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.section-2 .tab_btn li::before {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.sub_page_bakery .tab_btn { --tab-width: 141px; --tab-height: calc(var(--tab-width) * 68 / 141); }
+.sub_page_bakery .tab_btn li { flex: 0 0 var(--tab-width); width: var(--tab-width); padding: 0; }
+.sub_page_bakery .tab_btn li a {
+  display: flex; align-items: center; justify-content: center;
+  box-sizing: border-box; width: 100%; height: var(--tab-height);
+  padding: 0; white-space: nowrap; line-height: 1.2;
+}
+.sub_page_bakery .tab_btn li::before {
+  width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat;
+}
+footer .footer-logo-box { width: 242px; max-width: 100%; }
+footer .footer-logo-box img { display: block; width: 100%; height: auto; object-fit: contain; }
+footer .footer-text-box { max-width: 100%; }
+.fixed-reserve-btn { transition: opacity .2s, visibility .2s; }
+.fixed-reserve-btn.is-over-footer { opacity: 0; visibility: hidden; pointer-events: none; }
 @media (width < 769px) {
 
   /* 헤더 시작 */
@@ -275,7 +318,9 @@
   .sub_page_bakery .tab_btn { padding: 1rem 1.6rem 0; }
   .sub_page_bakery .tab_btn li { padding: 0; }
   .sub_page_bakery .tab_btn li a { padding: 1.2rem 2rem; font-size: 1.6rem; white-space: nowrap; }
-  .sub_page_bakery .tab_btn li::before { width: 100%; height: 4.4rem; }
+  .sub_page_bakery .tab_btn { --tab-width: 8.8rem; }
+  .sub_page_bakery .tab_btn li a { padding: 0; }
+  .sub_page_bakery .tab_btn li::before { height: 100%; }
   .product_container { padding: 6rem 2.4rem 8rem; margin-top: -2rem; }
   .prod_wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem 2.4rem; }
   .prod_wrap > div { min-width: 0; }
@@ -290,7 +335,27 @@
   .sub_prod ~ footer .footer-last-box p { font-size: 1.2rem; }
 }
 
+@media (width < 769px) {
+  .section-2 .tab_btn { --tab-width: 7.2rem; --tab-height: calc(var(--tab-width) * 35 / 72); gap: 1.6rem; }
+  .divider-3 > h2 { max-width: 100%; font-size: clamp(2rem, 6vw, 3.6rem); text-align: center; }
+  .divider-3 > p { font-size: clamp(1.1rem, 2.5vw, 1.9rem); }
+  footer, .sub_prod ~ footer {
+    box-sizing: border-box; padding: 3rem 2rem 4rem;
+    border-radius: 4rem 4rem 0 0; gap: 2.4rem; text-align: center;
+  }
+  footer .footer-logo-box { width: clamp(14rem, 22vw, 20rem); }
+  footer .footer-logo-box img, .sub_prod ~ footer .footer-logo-box img { width: 100%; height: auto; }
+  footer .footer-title-box p { font-size: clamp(1.5rem, 2.4vw, 1.8rem); }
+  footer .footer-middle-box, .sub_prod ~ footer .footer-middle-box {
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem); gap: .8rem; line-height: 1.6;
+  }
+  footer .footer-last-box p, .sub_prod ~ footer .footer-last-box p { font-size: clamp(1rem, 1.6vw, 1.2rem); }
+  .fixed-reserve-btn { right: 1.6rem; bottom: max(1.6rem, env(safe-area-inset-bottom)); }
+  .fixed-reserve-btn img { width: 6.4rem; height: 6.4rem; }
+}
+
 @media (width < 376px) {
+  .section-2 .tab_btn { --tab-width: 5.3rem; --tab-height: calc(var(--tab-width) * 29 / 53); }
   .section-1-swiper { aspect-ratio: 375 / 657; }
   .mobile-header .top-bar { top: 2.5rem; }
   .mobile-header .promo-banner { height: 2.5rem; }
