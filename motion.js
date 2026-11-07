@@ -26,6 +26,7 @@
   function prepareEntries() {
     if (!window.IntersectionObserver) return () => {};
 
+    const subpage = !!document.querySelector(".sub-title, .sub_prod");
     const groups = new Map();
     const prepared = new Set();
 
@@ -48,7 +49,7 @@
           else finish(target);
         }
       }
-    }, { rootMargin: "0px 0px -48px" });
+    }, { rootMargin: subpage ? `0px 0px -${Math.min(180, Math.round(innerHeight * .18))}px` : "0px 0px -48px" });
 
     const batches = [];
     for (const [selector, parts] of sections) {
@@ -63,7 +64,8 @@
           const right = Math.min(innerWidth, frame?.right ?? innerWidth);
           return box.width && box.height && box.bottom > 0 && box.right > left + 1 && box.left < right - 1;
         });
-      if (targets.length) batches.push(targets);
+      if (subpage) targets.forEach(target => batches.push([target]));
+      else if (targets.length) batches.push(targets);
     }
     for (const targets of batches) {
       targets.forEach((element, index) => {

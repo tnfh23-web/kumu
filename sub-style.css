@@ -538,7 +538,7 @@ input[type="radio"] {
 .last-text-box > ol > li > ul {
   padding-left: 3rem;
 }
-.privacy-details { display: flow-root; overflow: hidden; }
+.privacy-details { display: flow-root; overflow: hidden; contain: layout paint; }
 .privacy-details > ol > li > ul { padding-left: 3rem; }
 .sub-last-box .plus-button { border: 0; }
 .sub-last-box .plus-button[hidden] { display: none; }

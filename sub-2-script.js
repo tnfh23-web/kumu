@@ -19,30 +19,22 @@ document.querySelectorAll(".promo-text").forEach((promoBox) => {
 
 // 프로모션 끝
 // 프로모션 헤더 고정
+const headerElements = {
+  desktop: document.querySelector('.header'),
+  mobile: document.querySelector('.mobile-header'),
+  section: document.querySelector('.section-1')
+};
+const headerBreakpoint = window.matchMedia('(width < 769px)');
+let lastHeaderState;
 function updateHeader() {
-  const sec1 = document.querySelector(".section-1");
-  const pcHeader = document.querySelector(".header");
-  const moHeader = document.querySelector(".mobile-header");
-
-  const isMobile = window.matchMedia("(width < 769px)").matches;
-  const header = isMobile ? moHeader : pcHeader;
-
-  // 헤더가 없으면 종료
-  if (!header) return;
-
-  const hide = window.scrollY > 10;
-  header.classList.toggle("is-promo-hidden", hide);
-
-  // 섹션1 패딩(원하는 값으로 조절)
-  if (!sec1) return;
-
-  if (isMobile) {
-    // 모바일: promo(3rem) + top-bar(6.3rem) = 9.3rem
-    sec1.style.paddingTop = hide ? "6.3rem" : "9.3rem";
-  } else {
-    // PC: promo(4rem) + top-bar(8rem) = 12rem
-    sec1.style.paddingTop = hide ? "8rem" : "12rem";
-  }
+  const mobile = headerBreakpoint.matches, hide = window.scrollY > 10;
+  const state = `${mobile}:${hide}`;
+  if (state === lastHeaderState) return;
+  lastHeaderState = state;
+  const header = mobile ? headerElements.mobile : headerElements.desktop;
+  header?.classList.toggle('is-promo-hidden', hide);
+  if (headerElements.section) headerElements.section.style.paddingTop = mobile
+    ? (hide ? '6.3rem' : '9.3rem') : (hide ? '8rem' : '12rem');
 }
 
 window.addEventListener("scroll", updateHeader, { passive: true });
@@ -103,7 +95,7 @@ function mountCatalog() {
     const visible = entries.filter(entry => entry.isIntersecting && entry.target.dataset.catalogEntry === 'pending' && entry.target.parentElement === panels[active])
       .map(entry => entry.target).sort((a, b) => cards.indexOf(a) - cards.indexOf(b));
     reveal(visible);
-  }, { rootMargin: '0px 0px -32px', threshold: 0.04 }) : null;
+  }, { rootMargin: `0px 0px -${Math.min(180, Math.round(innerHeight * .18))}px`, threshold: 0.08 }) : null;
 
   function reveal(cards) {
     cards.forEach((card, index) => {
@@ -113,7 +105,7 @@ function mountCatalog() {
       if (!card.animate) return;
       card.dataset.catalogEntry = 'playing';
       const animation = card.animate([{ opacity: 0 }, { opacity: 1 }], {
-        duration: 650, delay: Math.min(index, 5) * 100,
+        duration: 850, delay: Math.min(index, 5) * 120,
         easing: 'cubic-bezier(.2,.65,.25,1)', fill: 'backwards'
       });
       animations.set(card, animation);
@@ -134,7 +126,7 @@ function mountCatalog() {
   function revealVisible(panel) {
     reveal(cardsOf(panel).filter(card => {
       const box = card.getBoundingClientRect();
-      return box.top < innerHeight && box.bottom > 0;
+      return box.top < innerHeight - Math.min(180, Math.round(innerHeight * .18)) && box.bottom > 0;
     }));
   }
   function settle(panel) {
@@ -167,14 +159,12 @@ function mountCatalog() {
       try { await image.decode(); } catch { /* Preserve the native image fallback. */ }
     }));
     if (disposed || (requested !== null && requested !== index)) return;
-    const fromHeight = outgoing.offsetHeight;
     const box = { left: outgoing.offsetLeft, top: outgoing.offsetTop, width: outgoing.offsetWidth };
     const oldVisible = cardsOf(outgoing).filter(card => {
       const r = card.getBoundingClientRect();
       return r.top < innerHeight && r.bottom > 0;
     }).map(card => ({ card, opacity: getComputedStyle(card).opacity }));
     settle(outgoing);
-    container.style.height = fromHeight + 'px';
     Object.assign(outgoing.style, { position: 'absolute', left: box.left + 'px', top: box.top + 'px', width: box.width + 'px' });
     outgoing.classList.replace('active', 'is-leaving');
     outgoing.inert = true;
@@ -185,20 +175,18 @@ function mountCatalog() {
     incoming.setAttribute('aria-hidden', 'false');
     active = index;
     select(index);
-    const toHeight = incoming.offsetHeight;
     revealVisible(incoming);
-    const leaving = oldVisible.map(({card, opacity}, i) => card.animate ? card.animate([
+    const leaving = oldVisible.map(({card, opacity}) => card.animate ? card.animate([
       { opacity }, { opacity: 0 }
-    ], { duration: 350, delay: Math.min(i, 5) * 100, easing: 'ease-out', fill: 'forwards' }) : null).filter(Boolean);
-    const heightAnimation = container.animate && Math.abs(fromHeight - toHeight) > 1
-      ? container.animate([{ height: fromHeight + 'px' }, { height: toHeight + 'px' }], { duration: 380, easing: 'cubic-bezier(.2,.65,.25,1)', fill: 'forwards' }) : null;
-    [...leaving, heightAnimation].filter(Boolean).forEach(animation => transactions.add(animation));
+    ], { duration: 240, easing: 'ease-out', fill: 'forwards' }) : null).filter(Boolean);
+    // The new grid defines its final height once. Only visible cards crossfade;
+    // animating the full catalog height would relayout the page on every frame.
+    leaving.forEach(animation => transactions.add(animation));
     try {
-      await Promise.allSettled([...leaving, heightAnimation].filter(Boolean).map(animation => animation.finished));
+      await Promise.allSettled(leaving.map(animation => animation.finished));
     } finally {
       leaving.forEach(animation => animation.cancel());
-      heightAnimation?.cancel();
-      [...leaving, heightAnimation].filter(Boolean).forEach(animation => transactions.delete(animation));
+      leaving.forEach(animation => transactions.delete(animation));
       outgoing.classList.remove('is-leaving');
       ['position', 'left', 'top', 'width'].forEach(property => outgoing.style.removeProperty(property));
       container.style.removeProperty('height');

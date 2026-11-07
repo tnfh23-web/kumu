@@ -20,30 +20,22 @@ document.querySelectorAll(".promo-text").forEach((promoBox) => {
 // 프로모션 끝
 
 // 프로모션 헤더 고정
+const headerElements = {
+  desktop: document.querySelector('.header'),
+  mobile: document.querySelector('.mobile-header'),
+  section: document.querySelector('.section-1')
+};
+const headerBreakpoint = window.matchMedia('(width < 769px)');
+let lastHeaderState;
 function updateHeader() {
-  const sec1 = document.querySelector(".section-1");
-  const pcHeader = document.querySelector(".header");
-  const moHeader = document.querySelector(".mobile-header");
-
-  const isMobile = window.matchMedia("(width < 769px)").matches;
-  const header = isMobile ? moHeader : pcHeader;
-
-  // 헤더가 없으면 종료
-  if (!header) return;
-
-  const hide = window.scrollY > 10;
-  header.classList.toggle("is-promo-hidden", hide);
-
-  // 섹션1 패딩(원하는 값으로 조절)
-  if (!sec1) return;
-
-  if (isMobile) {
-    // 모바일: promo(3rem) + top-bar(6.3rem) = 9.3rem
-    sec1.style.paddingTop = hide ? "6.3rem" : "9.3rem";
-  } else {
-    // PC: promo(4rem) + top-bar(8rem) = 12rem
-    sec1.style.paddingTop = hide ? "8rem" : "12rem";
-  }
+  const mobile = headerBreakpoint.matches, hide = window.scrollY > 10;
+  const state = `${mobile}:${hide}`;
+  if (state === lastHeaderState) return;
+  lastHeaderState = state;
+  const header = mobile ? headerElements.mobile : headerElements.desktop;
+  header?.classList.toggle('is-promo-hidden', hide);
+  if (headerElements.section) headerElements.section.style.paddingTop = mobile
+    ? (hide ? '6.3rem' : '9.3rem') : (hide ? '8rem' : '12rem');
 }
 
 window.addEventListener("scroll", updateHeader, { passive: true });
@@ -105,7 +97,7 @@ function privacyAccordion() {
     panel.style.height = open ? 'auto' : '0px';
     if (animate && panel.animate) {
       const current = panel.animate([{ height: from + 'px' }, { height: to + 'px' }], {
-        duration: 320, easing: 'cubic-bezier(.2,.65,.25,1)'
+        duration: 600, easing: 'cubic-bezier(.4,0,.2,1)'
       });
       animation = current;
       current.finished.catch(() => {}).then(() => { if (animation === current) animation = null; });
