@@ -38,6 +38,25 @@
   overflow-y: auto;
 }
 
+.kumu-loops-paused .text-marquee-track,
+.kumu-loops-paused .marquee-track,
+.kumu-loops-paused .back-1,
+.kumu-loops-paused .back-2 {
+  animation-play-state: paused;
+}
+
+.divider-1,
+.divider-3 {
+  isolation: isolate;
+}
+
+.divider-1:not(.kumu-loops-paused) .text-marquee-track,
+.section-5:not(.kumu-loops-paused) .marquee-track,
+.divider-3:not(.kumu-loops-paused) .back-1,
+.divider-3:not(.kumu-loops-paused) .back-2 {
+  will-change: transform;
+}
+
 @media (min-width: 376px) {
   .new-product-panels {
     display: grid;

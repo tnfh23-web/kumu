@@ -115,12 +115,28 @@
 
   let dispose;
 
+  function pauseOffscreenLoops() {
+    if (!window.IntersectionObserver) return () => {};
+    const loops = document.querySelectorAll(".divider-1, .section-5, .divider-3");
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        entry.target.classList.toggle("kumu-loops-paused", !entry.isIntersecting);
+      }
+    }, { rootMargin: "160px 0px" });
+    loops.forEach((element) => observer.observe(element));
+    return () => {
+      observer.disconnect();
+      loops.forEach((element) => element.classList.remove("kumu-loops-paused"));
+    };
+  }
+
   function mount(playEntries) {
     if (dispose) return;
     const lenis = window.Lenis
       ? new window.Lenis({ smoothWheel: true, lerp: 0.08, autoRaf: true })
       : null;
     const cleanupEntries = playEntries ? prepareEntries() : () => {};
+    const cleanupLoops = pauseOffscreenLoops();
     const sidebar = document.querySelector(".sidebar-menu");
 
     const syncSidebar = () => {
@@ -138,6 +154,7 @@
 
     dispose = () => {
       cleanupEntries();
+      cleanupLoops();
       sidebarObserver?.disconnect();
       window.removeEventListener("resize", syncSidebar);
       lenis?.destroy();

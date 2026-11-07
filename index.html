@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>kumu</title>
-    <link rel="stylesheet" href="main-style.css" />
+    <link rel="stylesheet" href="main-style.css?v=cold-perf-2" />
     <link rel="stylesheet" href="variable.css" />
     <!-- 폰트어썸 불러오기 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
@@ -15,9 +15,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="vendor/lenis.css" />
-    <link rel="stylesheet" href="motion.css?v=menu-entry-3" />
+    <link rel="stylesheet" href="motion.css?v=cold-perf-2" />
     <script src="vendor/lenis.min.js" defer></script>
-    <script src="motion.js?v=menu-entry-3" defer></script>
+    <script src="motion.js?v=cold-perf-2" defer></script>
+    <link rel="preload" href="assets/fonts/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/JalnanOTF00.woff" as="font" type="font/woff" crossorigin />
   </head>
   <body onclick="return false">
     <!-------------------------------------------------------------- 헤더 ---------------------------------------->
@@ -190,22 +192,22 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <picture>
-                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_1.png" />
-                <img src="img/sec_1/banner_1.png" alt="배너이미지" />
+                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_1.webp" />
+                <img src="img/sec_1/banner_1.webp" fetchpriority="high" alt="배너이미지" />
               </picture>
             </div>
 
             <div class="swiper-slide">
               <picture>
-                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_2.png" />
-                <img src="img/sec_1/banner_2.png" alt="배너이미지" />
+                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_2.webp" />
+                <img src="img/sec_1/banner_2.webp" alt="배너이미지" />
               </picture>
             </div>
 
             <div class="swiper-slide">
               <picture>
-                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_3.png" />
-                <img src="img/sec_1/banner_3.png" alt="배너이미지" />
+                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_3.webp" />
+                <img src="img/sec_1/banner_3.webp" alt="배너이미지" />
               </picture>
             </div>
           </div>
@@ -249,32 +251,32 @@
           <div class="swiper section-2-swiper drink-swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_1_img_1.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_1_img_1.webp" alt="" width="357" height="360" loading="lazy" decoding="async" />
                 <p>깔끔한 산미와 단단한 바디의 데일리 블랙</p>
                 <span>블렌드 아메리카노</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_1_img_2.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_1_img_2.webp" alt="" width="357" height="360" loading="lazy" decoding="async" />
                 <p>깔끔한 콜드부르 위에 부드러운 크림 헤드</p>
                 <span>크림 콜드브루</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_1_img_3.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_1_img_3.webp" alt="" width="357" height="360" loading="lazy" decoding="async" />
                 <p>진한 에스프레소에 부드러운 스팀 밀크</p>
                 <span>카페 라떼</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_1_img_4.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_1_img_4.webp" alt="" width="357" height="360" loading="lazy" decoding="async" />
                 <p>마다가스카르 바닐라의 은은한 단맛이 포인트</p>
                 <span>바닐라 빈 라떼</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_1_img_5.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_1_img_5.webp" alt="" width="357" height="360" loading="lazy" decoding="async" />
                 <p>진한 제주 말차와 우유의 고소한 밸런스</p>
                 <span>제주 말차 라떼</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_1_img_6.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_1_img_6.webp" alt="" width="357" height="360" loading="lazy" decoding="async" />
                 <p>코코아와 우유의 부드러운 조화</p>
                 <span>다크 코코아 라떼</span>
               </div>
@@ -290,32 +292,32 @@
           <div class="swiper section-2-swiper bakery-swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_2_img_1.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_2_img_1.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>따끈한 토스트 위 꿀과 크림의 달콤 고소함</p>
                 <span>허니 브레드</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_2_img_2.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_2_img_2.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>꾸덕한 치즈 텍스처와 고소한 크러스트의 클래식</p>
                 <span>뉴욕 치즈케이크</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_2_img_3.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_2_img_3.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>클래식한 담백 버터 향</p>
                 <span>버터 크루아상</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_2_img_4.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_2_img_4.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>고소한 버터에 소금 한 꼬집, 담백한 일상빵</p>
                 <span>솔트 버터 소금빵</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_2_img_5.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_2_img_5.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>제철 과일을 듬뿍 올린 상큼한 한 조각</p>
                 <span>사계절 과일 타르트</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_2_img_6.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_2_img_6.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>바삭한 레드 쿠키에 상큼한 딸기 한 점 포인트</p>
                 <span>스트로베리 레드 쿠키</span>
               </div>
@@ -331,32 +333,32 @@
           <div class="swiper section-2-swiper goods-swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_3_img_1.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_3_img_1.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>쿠무를 항상 곁에 두는 포근한 키링</p>
                 <span>쿠무 포근 키링</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_3_img_2.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_3_img_2.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>산책부터 장보기까지 함께하는 여유로운 에코백</p>
                 <span>쿠무 산책 에코백</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_3_img_3.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_3_img_3.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>따뜻한 온도를 오래 지켜주는 텀블러</p>
                 <span>쿠무 데일리 텀블러</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_3_img_1.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_3_img_1.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>쿠무를 항상 곁에 두는 포근한 키링</p>
                 <span>쿠무 포근 키링</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_3_img_2.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_3_img_2.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>산책부터 장보기까지 함께하는 여유로운 에코백</p>
                 <span>쿠무 산책 에코백</span>
               </div>
               <div class="swiper-slide">
-                <img src="img/sec_2/sec_2_tap_3_img_3.png" alt="" />
+                <img src="img/sec_2/sec_2_tap_3_img_3.webp" alt="" width="544" height="582" loading="lazy" decoding="async" />
                 <p>따뜻한 온도를 오래 지켜주는 텀블러</p>
                 <span>쿠무 데일리 텀블러</span>
               </div>
@@ -380,7 +382,7 @@
         <div class="section-3-box">
           <div class="left-content">
             <a href="#">
-              <img src="img/sec_3/sec_3_left_img.webp" decoding="async" srcset="img/sec_3/sec_3_left_img-1020.webp 1020w, img/sec_3/sec_3_left_img.webp 2040w" sizes="(max-width: 375px) 375px, (max-width: 768px) 768px, (min-width: 1920px) 53.125vw, 1020px" alt="홍보물이미지" />
+              <img src="img/sec_3/sec_3_left_img.webp" srcset="img/sec_3/sec_3_left_img-1020.webp 1020w, img/sec_3/sec_3_left_img.webp 2040w" sizes="(max-width: 375px) 375px, (max-width: 768px) 768px, (min-width: 1920px) 53.125vw, 1020px" alt="홍보물이미지" width="2040" height="1928" loading="lazy" decoding="async" />
             </a>
           </div>
           <div class="new-product-panels">
@@ -401,7 +403,7 @@
               </div>
               <div class="right-card right-card-2">
                 <a href="#">
-                  <img src="img/sec_3/sec_3_right_img_1.webp" decoding="async" alt="목업이미지" />
+                  <img src="img/sec_3/sec_3_right_img_1.webp" alt="목업이미지" width="880" height="849" loading="lazy" decoding="async" />
                 </a>
                 <a href="#"><p>진저 밀크티</p></a>
               </div>
@@ -409,13 +411,13 @@
             <div class="right-card-bottom">
               <div class="right-card right-card-3">
                 <a href="#">
-                  <img src="img/sec_3/sec_3_right_img_2.webp" decoding="async" alt="목업이미지" />
+                  <img src="img/sec_3/sec_3_right_img_2.webp" alt="목업이미지" width="880" height="849" loading="lazy" decoding="async" />
                 </a>
                 <a href="#"><p>멍어빵</p></a>
               </div>
               <div class="right-card right-card-4">
                 <a href="#">
-                  <img src="img/sec_3/sec_3_right_img_3.webp" decoding="async" alt="목업이미지" />
+                  <img src="img/sec_3/sec_3_right_img_3.webp" alt="목업이미지" width="880" height="849" loading="lazy" decoding="async" />
                 </a>
                 <a href="#"><p>멍푸치노</p></a>
               </div>
@@ -438,7 +440,7 @@
               </div>
               <div class="right-card right-card-2">
                 <a href="#">
-                  <img src="img/sec_3/sec_3_right_img_4.webp" decoding="async" alt="목업이미지" />
+                  <img src="img/sec_3/sec_3_right_img_4.webp" alt="목업이미지" width="880" height="849" loading="lazy" decoding="async" />
                 </a>
                 <a href="#"><p>유자 레몬티</p></a>
               </div>
@@ -446,13 +448,13 @@
             <div class="right-card-bottom">
               <div class="right-card right-card-3">
                 <a href="#">
-                  <img src="img/sec_3/sec_3_right_img_5.webp" decoding="async" alt="목업이미지" />
+                  <img src="img/sec_3/sec_3_right_img_5.webp" alt="목업이미지" width="880" height="849" loading="lazy" decoding="async" />
                 </a>
                 <a href="#"><p>쿠무 포근 키링</p></a>
               </div>
               <div class="right-card right-card-4">
                 <a href="#">
-                  <img src="img/sec_3/sec_3_right_img_6.webp" decoding="async" alt="목업이미지" />
+                  <img src="img/sec_3/sec_3_right_img_6.webp" alt="목업이미지" width="880" height="849" loading="lazy" decoding="async" />
                 </a>
                 <a href="#"><p>쿠무 산책 에코백</p></a>
               </div>
@@ -468,27 +470,27 @@
             <div class="right-swiper swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <img src="img/sec_3/sec_3_right_img_1.webp" decoding="async" />
+                  <img src="img/sec_3/sec_3_right_img_1.webp" width="880" height="849" loading="lazy" decoding="async" />
                   <p>진저 밀크티</p>
                 </div>
                 <div class="swiper-slide">
-                  <img src="img/sec_3/sec_3_right_img_2.webp" decoding="async" />
+                  <img src="img/sec_3/sec_3_right_img_2.webp" width="880" height="849" loading="lazy" decoding="async" />
                   <p>멍어빵</p>
                 </div>
                 <div class="swiper-slide">
-                  <img src="img/sec_3/sec_3_right_img_3.webp" decoding="async" />
+                  <img src="img/sec_3/sec_3_right_img_3.webp" width="880" height="849" loading="lazy" decoding="async" />
                   <p>멍푸치노</p>
                 </div>
                 <div class="swiper-slide">
-                  <img src="img/sec_3/sec_3_right_img_4.webp" decoding="async" />
+                  <img src="img/sec_3/sec_3_right_img_4.webp" width="880" height="849" loading="lazy" decoding="async" />
                   <p>유자 레몬티</p>
                 </div>
                 <div class="swiper-slide">
-                  <img src="img/sec_3/sec_3_right_img_5.webp" decoding="async" />
+                  <img src="img/sec_3/sec_3_right_img_5.webp" width="880" height="849" loading="lazy" decoding="async" />
                   <p>쿠무 포근 키링</p>
                 </div>
                 <div class="swiper-slide">
-                  <img src="img/sec_3/sec_3_right_img_6.webp" decoding="async" />
+                  <img src="img/sec_3/sec_3_right_img_6.webp" width="880" height="849" loading="lazy" decoding="async" />
                   <p>쿠무 산책 에코백</p>
                 </div>
               </div>
@@ -534,7 +536,7 @@
           <div class="event-page page-1 active">
             <div class="img-card-box img-card-box-1">
               <a href="#">
-                <img src="img/sec_4/sec_4_img_1.webp" decoding="async" alt="이벤트이미지" />
+                <img src="img/sec_4/sec_4_img_1.webp" alt="이벤트이미지" width="880" height="1033" loading="lazy" decoding="async" />
                 <div class="hover-text">
                   <p>
                     클래스 들으면 포인트가 차곡차곡!<br />
@@ -545,7 +547,7 @@
             </div>
             <div class="img-card-box img-card-box-2">
               <a href="#">
-                <img src="img/sec_4/sec_4_img_2.webp" decoding="async" alt="이벤트이미지" />
+                <img src="img/sec_4/sec_4_img_2.webp" alt="이벤트이미지" width="880" height="1033" loading="lazy" decoding="async" />
                 <div class="hover-text">
                   <p>
                     🐶우리 강아지 생일을 더 달콤하게🐶<br />
@@ -558,7 +560,7 @@
           <div class="event-page page-2">
             <div class="img-card-box img-card-box-3">
               <a href="#">
-                <img src="img/sec_4/sec_4_img_3.webp" decoding="async" alt="이벤트이미지" />
+                <img src="img/sec_4/sec_4_img_3.webp" alt="이벤트이미지" width="880" height="1033" loading="lazy" decoding="async" />
                 <div class="hover-text">
                   <p>
                     🎄겨울 한정 케이크가 짠!🎄<br />
@@ -569,7 +571,7 @@
             </div>
             <div class="img-card-box img-card-box-4">
               <a href="#">
-                <img src="img/sec_4/sec_4_img_4.webp" decoding="async" alt="이벤트이미지" />
+                <img src="img/sec_4/sec_4_img_4.webp" alt="이벤트이미지" width="880" height="1033" loading="lazy" decoding="async" />
                 <div class="hover-text">
                   <p>
                     반짝이는 포토존에서 찰칵<br />
@@ -585,22 +587,22 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <a href="#">
-                <img src="img/sec_4/slide-img/slide_img_1.png" alt="이벤트이미지" />
+                <img src="img/sec_4/slide-img/slide_img_1.webp" alt="이벤트이미지" width="489" height="573" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="swiper-slide">
               <a href="#">
-                <img src="img/sec_4/slide-img/slide_img_2.png" alt="이벤트이미지" />
+                <img src="img/sec_4/slide-img/slide_img_2.webp" alt="이벤트이미지" width="489" height="573" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="swiper-slide">
               <a href="#">
-                <img src="img/sec_4/slide-img/slide_img_3.png" alt="이벤트이미지" />
+                <img src="img/sec_4/slide-img/slide_img_3.webp" alt="이벤트이미지" width="489" height="573" loading="lazy" decoding="async" />
               </a>
             </div>
             <div class="swiper-slide">
               <a href="#">
-                <img src="img/sec_4/slide-img/slide_img_4.png" alt="이벤트이미지" />
+                <img src="img/sec_4/slide-img/slide_img_4.webp" alt="이벤트이미지" width="489" height="573" loading="lazy" decoding="async" />
               </a>
             </div>
           </div>
@@ -609,9 +611,9 @@
 
       <!-- 섹션 디바이더 배너 -->
       <div class="divider-2">
-        <a class="divider-2-pc" href="#"><img src="img/divider-2/divider_2_img.png" alt="배너이미지" /></a>
-        <a class="divider-2-tablet" href="#"><img src="img/divider-2/divider_2_768_img.png" alt="배너이미지" /></a>
-        <a class="divider-2-mobile" href="#"><img src="img/divider-2/divider_2_375_img.png" alt="배너이미지" /></a>
+        <a class="divider-2-pc" href="#"><img src="img/divider-2/divider_2_img.webp" alt="배너이미지" width="5760" height="690" loading="lazy" decoding="async" /></a>
+        <a class="divider-2-tablet" href="#"><img src="img/divider-2/divider_2_768_img.webp" alt="배너이미지" width="2304" height="384" loading="lazy" decoding="async" /></a>
+        <a class="divider-2-mobile" href="#"><img src="img/divider-2/divider_2_375_img.webp" alt="배너이미지" width="1125" height="240" loading="lazy" decoding="async" /></a>
       </div>
 
       <!-- 섹션 5 -->
@@ -622,37 +624,37 @@
         <div class="marquee-box">
           <div class="marquee-track">
             <a href="#">
-              <img src="img/sec_5/marquee_img_1.webp" decoding="async" alt="인스타그램이미지" />
+              <img src="img/sec_5/marquee_img_1.webp" alt="인스타그램이미지" width="640" height="640" loading="lazy" decoding="async" />
             </a>
             <a href="#">
-              <img src="img/sec_5/marquee_img_2.webp" decoding="async" alt="인스타그램이미지" />
+              <img src="img/sec_5/marquee_img_2.webp" alt="인스타그램이미지" width="640" height="640" loading="lazy" decoding="async" />
             </a>
             <a href="#">
-              <img src="img/sec_5/marquee_img_3.webp" decoding="async" alt="인스타그램이미지" />
+              <img src="img/sec_5/marquee_img_3.webp" alt="인스타그램이미지" width="640" height="640" loading="lazy" decoding="async" />
             </a>
             <a href="#">
-              <img src="img/sec_5/marquee_img_4.webp" decoding="async" alt="인스타그램이미지" />
+              <img src="img/sec_5/marquee_img_4.webp" alt="인스타그램이미지" width="640" height="640" loading="lazy" decoding="async" />
             </a>
             <a href="#">
-              <img src="img/sec_5/marquee_img_5.webp" decoding="async" alt="인스타그램이미지" />
+              <img src="img/sec_5/marquee_img_5.webp" alt="인스타그램이미지" width="640" height="640" loading="lazy" decoding="async" />
             </a>
             <a href="#">
-              <img src="img/sec_5/marquee_img_6.webp" decoding="async" alt="인스타그램이미지" />
+              <img src="img/sec_5/marquee_img_6.webp" alt="인스타그램이미지" width="640" height="640" loading="lazy" decoding="async" />
             </a>
             <a href="#">
-              <img src="img/sec_5/marquee_img_7.webp" decoding="async" alt="인스타그램이미지" />
+              <img src="img/sec_5/marquee_img_7.webp" alt="인스타그램이미지" width="640" height="640" loading="lazy" decoding="async" />
             </a>
             <a href="#">
-              <img src="img/sec_5/marquee_img_8.webp" decoding="async" alt="인스타그램이미지" />
+              <img src="img/sec_5/marquee_img_8.webp" alt="인스타그램이미지" width="640" height="640" loading="lazy" decoding="async" />
             </a>
             <a href="#">
-              <img src="img/sec_5/marquee_img_9.webp" decoding="async" alt="인스타그램이미지" />
+              <img src="img/sec_5/marquee_img_9.webp" alt="인스타그램이미지" width="640" height="640" loading="lazy" decoding="async" />
             </a>
             <a href="#">
-              <img src="img/sec_5/marquee_img_10.webp" decoding="async" alt="인스타그램이미지" />
+              <img src="img/sec_5/marquee_img_10.webp" alt="인스타그램이미지" width="640" height="640" loading="lazy" decoding="async" />
             </a>
             <a href="#">
-              <img src="img/sec_5/marquee_img_11.webp" decoding="async" alt="인스타그램이미지" />
+              <img src="img/sec_5/marquee_img_11.webp" alt="인스타그램이미지" width="640" height="640" loading="lazy" decoding="async" />
             </a>
           </div>
         </div>
