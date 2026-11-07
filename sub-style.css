@@ -609,7 +609,7 @@ footer {
 }
 /* 768 반응형 */
 
-@media (max-width: 768px) {
+@media (width < 769px) {
   html {
     font-size: 10px;
   }
@@ -867,7 +867,7 @@ footer {
 
 /* 반응형 375 시작 */
 
-@media (max-width: 375px) {
+@media (width < 376px) {
   .mobile-header .top-bar {
     top: 2.5rem;
   }

@@ -22,7 +22,7 @@ function updateHeader() {
   const pcHeader = document.querySelector(".header");
   const moHeader = document.querySelector(".mobile-header");
 
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const isMobile = window.matchMedia("(width < 769px)").matches;
   const header = isMobile ? moHeader : pcHeader;
 
   // 헤더가 없으면 종료
@@ -354,13 +354,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 섹션 4 768반응형 시작
 
+const tabletEvents = window.matchMedia("(min-width: 376px) and (width < 769px)");
+let eventTimer;
 function eventAutoSwitch() {
-  if (window.innerWidth > 768) return;
+  clearInterval(eventTimer);
+  if (!tabletEvents.matches) return;
 
-  const pages = document.querySelectorAll(".event-page");
-  let index = 0;
+  const pages = [...document.querySelectorAll(".event-page")];
+  if (pages.length < 2) return;
+  let index = Math.max(0, pages.findIndex(page => page.classList.contains("active")));
 
-  setInterval(() => {
+  eventTimer = setInterval(() => {
     pages[index].classList.remove("active");
     index = (index + 1) % pages.length;
     pages[index].classList.add("active");
@@ -368,18 +372,22 @@ function eventAutoSwitch() {
 }
 
 eventAutoSwitch();
+tabletEvents.addEventListener("change", eventAutoSwitch);
+window.addEventListener("pagehide", () => clearInterval(eventTimer));
+window.addEventListener("pageshow", event => { if (event.persisted) eventAutoSwitch(); });
 
 // 섹션 4 768반응형 끝
 let eventSwiper;
 
 function initEventSwiper() {
-  if (window.innerWidth > 375 && eventSwiper) {
+  const mobile = window.matchMedia("(width < 376px)").matches;
+  if (!mobile && eventSwiper) {
     eventSwiper.destroy(true, true);
     eventSwiper = null;
     return;
   }
 
-  if (window.innerWidth <= 375 && !eventSwiper) {
+  if (mobile && !eventSwiper) {
     eventSwiper = new Swiper(".event-swiper", {
       slidesPerView: "auto",
       centeredSlides: true,

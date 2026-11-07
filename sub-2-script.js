@@ -24,7 +24,7 @@ function updateHeader() {
   const pcHeader = document.querySelector(".header");
   const moHeader = document.querySelector(".mobile-header");
 
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const isMobile = window.matchMedia("(width < 769px)").matches;
   const header = isMobile ? moHeader : pcHeader;
 
   // 헤더가 없으면 종료
@@ -113,3 +113,4 @@ function Box1__init() {
 }
 
 Box1__init();
+mobiletopbar_init();

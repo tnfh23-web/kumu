@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>kumu</title>
-    <link rel="stylesheet" href="main-style.css?v=cold-perf-2" />
+    <link rel="stylesheet" href="main-style.css?v=responsive-1" />
     <link rel="stylesheet" href="variable.css" />
     <!-- 폰트어썸 불러오기 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="vendor/lenis.css" />
-    <link rel="stylesheet" href="motion.css?v=cold-perf-2" />
+    <link rel="stylesheet" href="motion.css?v=responsive-1" />
+    <link rel="stylesheet" href="responsive.css?v=responsive-1" />
     <script src="vendor/lenis.min.js" defer></script>
     <script src="motion.js?v=cold-perf-2" defer></script>
     <link rel="preload" href="assets/fonts/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin />
@@ -192,21 +193,21 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <picture>
-                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_1.webp" />
+                <source media="(width < 376px)" srcset="img/sec_1/mobile_banner_1.webp" />
                 <img src="img/sec_1/banner_1.webp" fetchpriority="high" alt="배너이미지" />
               </picture>
             </div>
 
             <div class="swiper-slide">
               <picture>
-                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_2.webp" />
+                <source media="(width < 376px)" srcset="img/sec_1/mobile_banner_2.webp" />
                 <img src="img/sec_1/banner_2.webp" alt="배너이미지" />
               </picture>
             </div>
 
             <div class="swiper-slide">
               <picture>
-                <source media="(max-width: 375px)" srcset="img/sec_1/mobile_banner_3.webp" />
+                <source media="(width < 376px)" srcset="img/sec_1/mobile_banner_3.webp" />
                 <img src="img/sec_1/banner_3.webp" alt="배너이미지" />
               </picture>
             </div>
@@ -382,7 +383,7 @@
         <div class="section-3-box">
           <div class="left-content">
             <a href="#">
-              <img src="img/sec_3/sec_3_left_img.webp" srcset="img/sec_3/sec_3_left_img-1020.webp 1020w, img/sec_3/sec_3_left_img.webp 2040w" sizes="(max-width: 375px) 375px, (max-width: 768px) 768px, (min-width: 1920px) 53.125vw, 1020px" alt="홍보물이미지" width="2040" height="1928" loading="lazy" decoding="async" />
+              <img src="img/sec_3/sec_3_left_img.webp" srcset="img/sec_3/sec_3_left_img-1020.webp 1020w, img/sec_3/sec_3_left_img.webp 2040w" sizes="(width < 769px) 100vw, (width < 1920px) calc((100vw - 20px) * 0.542553), 53.125vw" alt="홍보물이미지" width="2040" height="1928" loading="lazy" decoding="async" />
             </a>
           </div>
           <div class="new-product-panels">
@@ -704,6 +705,6 @@
     <!-- 슬릭 슬라이드 -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- 자바 불러오기 -->
-    <script src="main-script.js"></script>
+    <script src="main-script.js?v=responsive-1"></script>
   </body>
 </html>

@@ -862,7 +862,7 @@ footer {
 /* 풋터 끝 */
 
 /* 반응형 768 */
-@media (max-width: 768px) {
+@media (width < 769px) {
   /* 헤더 시작 */
 
   .header {
@@ -1339,7 +1339,7 @@ footer {
 
 /* 반응형 375 */
 
-@media (max-width: 375px) {
+@media (width < 376px) {
   .mobile-header .top-bar {
     top: 2.5rem;
   }

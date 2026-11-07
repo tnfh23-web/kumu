@@ -27,7 +27,7 @@
   animation-delay: calc(var(--kumu-entry-delay, 0) * 95ms);
 }
 
-@media (max-width: 768px) {
+@media (width < 769px) {
   [data-kumu-entry="playing"] {
     --kumu-entry-distance: 16px;
     animation-delay: calc(var(--kumu-entry-delay, 0) * 110ms);
@@ -84,7 +84,7 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (width < 376px) {
   .new-product-panels {
     display: none;
   }

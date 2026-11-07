@@ -1,0 +1,301 @@
+/* Preserve the existing 375 / 768 layouts; cover the widths between them. */
+@media (width < 769px) {
+
+  /* 헤더 시작 */
+
+  .header {
+    display: none;
+  }
+  .mobile-header {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: max-content;
+    background-color: #fff;
+    z-index: 99999;
+  }
+  .mobile-header .promo-banner {
+    position: relative;
+    width: 100%;
+    height: 3rem;
+    background-color: #ad7252;
+    overflow: hidden;
+  }
+
+  .mobile-header .promo-text {
+    position: relative;
+    height: 100%;
+  }
+
+  .mobile-header .promo-text span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    font-family: "pretendard", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #f4ede4;
+  }
+
+  .mobile-header .promo-text span.active {
+    opacity: 1;
+  }
+  .mobile-header .top-bar {
+    position: fixed;
+    top: 3rem;
+    left: 0;
+    height: 6.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+  .mobile-header.is-promo-hidden .top-bar {
+    top: 0;
+  }
+  .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Jalnan 2", sans-serif;
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 50%;
+    height: 100%;
+    background-color: #fdfaf7;
+    z-index: 99999;
+    transition: all 0.4s;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebar-menu.active {
+    right: 0;
+  }
+
+  .sidebar-menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+  }
+  .sidebar-menu-button span {
+    display: block;
+    height: 3px;
+    background-color: #ad7252;
+  }
+
+  .sidebar-menu-list-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-top: 12rem;
+  }
+
+  .sidebar-menu-list > a {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ad7252;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #ad7252;
+  }
+
+  .sidebar-menu-list-1-sub {
+    padding-top: 1.2rem;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .sidebar-menu-list-1-sub li a {
+    font-family: "pretendard", sans-serif;
+    font-size: 1.8rem;
+    color: #ad7252;
+    font-weight: 700;
+  }
+  .sidebar-menu-list-1-sub li a:hover {
+    font-weight: 800;
+  }
+  .sidebar-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+  }
+
+  .sidebar-close span {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #ad7252;
+    top: 50%;
+    left: 0;
+  }
+
+  .sidebar-close span:first-child {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .sidebar-close span:last-child {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  .sidebar-menu-list-1-sub {
+    display: none;
+  }
+  .sidebar-menu .text-box {
+    display: flex;
+    font-family: "pretendard", sans-serif;
+    gap: 1rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #ad7252;
+    padding-bottom: 10rem;
+  }
+
+  }
+
+/* Keep the desktop navigation on one line on smaller PC screens. */
+@media (min-width: 769px) and (width < 1280px) {
+  .top-bar { padding-inline: clamp(2rem, 5vw, 6rem); gap: 2rem; }
+  .top-bar > .menu { flex: 1; min-width: 0; max-width: 55rem; width: auto; }
+  .top-bar > a, .language-box { flex-shrink: 0; }
+  .top-bar nav a { white-space: nowrap; }
+}
+
+/* Both halves shrink together. The 1920px composition remains unchanged. */
+@media (min-width: 769px) and (width < 1920px) {
+  .section-2-button-box .hover-img { left: 0; }
+  .section-1-swiper { height: auto; aspect-ratio: 1500 / 810; }
+  .section-1-swiper .swiper-slide { height: 100%; }
+  .section-3 .left-content {
+    flex: 0 1 102rem;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 1020 / 962;
+    align-self: flex-start;
+  }
+  .section-3 .new-product-panels {
+    flex: 0 1 86rem;
+    min-width: 0;
+    container-type: inline-size;
+  }
+  .section-3 .right-content { min-width: 0; }
+  .section-3 .right-card-top, .section-3 .right-card-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .section-3 .right-card, .section-3 .right-card-1 {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 420 / 473;
+  }
+  .section-3 .right-card-1 { padding-left: clamp(1rem, 3.4884cqw, 3rem); }
+  .section-3 .right-card-1 h2 { font-size: clamp(2.6rem, 6.7442cqw, 5.8rem); }
+  .section-3 .right-card-1 .right-card-1-text-1 { font-size: clamp(1.2rem, 2.0931cqw, 1.8rem); }
+  .section-3 .right-card-1 .right-card-1-text-2 {
+    font-size: clamp(1.1rem, 1.628cqw, 1.4rem);
+    padding-top: clamp(.6rem, 1.3954cqw, 1.2rem);
+    padding-bottom: clamp(1rem, 2.3256cqw, 2rem);
+  }
+  .section-3 .right-card p {
+    font-size: clamp(1.2rem, 2.3256cqw, 2rem);
+    padding-block: clamp(1rem, 2.5581cqw, 2.2rem);
+  }
+  .section-3 .right-card > a:first-child { display: block; width: 100%; flex: 1; min-height: 0; }
+  .section-3 .right-card > a:first-child img { object-fit: contain; }
+  .section-4 .event-switch { max-width: 150rem; margin-inline: auto; }
+  .section-4 .event-page { flex: 1; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .section-4 .img-card-box { min-width: 0; }
+  .section-4 .event-switch img { width: 100%; height: auto; aspect-ratio: 357 / 419; }
+  .section-4 .hover-text p { font-size: clamp(1.2rem, 1.2vw, 1.8rem); }
+}
+
+@media (width < 769px) {
+  .section-1-swiper { height: auto; aspect-ratio: 768 / 413; }
+  .section-1-swiper .swiper-slide { height: 100%; }
+  .section-3 .left-content { width: 100%; max-width: 76.8rem; height: auto; aspect-ratio: 768 / 724; }
+  .section-3 .new-product-panels { min-width: 0; width: 100%; container-type: inline-size; }
+  .section-3 .right-content { min-width: 0; box-sizing: border-box; }
+  .section-4 .event-switch {
+    width: 68.8rem;
+    max-width: 100%;
+    margin-inline: auto;
+    height: auto;
+    aspect-ratio: 688 / 420;
+  }
+  .section-4 .event-page > .img-card-box { flex: 0 1 33.4rem; min-width: 0; }
+  .section-4 .event-switch img { display: block; width: 100%; height: auto; aspect-ratio: 334 / 392; }
+}
+
+/* Retain the tablet's two columns when the viewport is narrower than 688px. */
+@media (width < 769px) {
+@container (width < 688px) {
+  .section-3 .right-card-top, .section-3 .right-card-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .section-3 .right-card, .section-3 .right-card-1 {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 334 / 376;
+  }
+  .section-3 .right-card-1 h2 { font-size: clamp(2.2rem, 5.09cqw, 3.4rem); }
+  .section-3 .right-card-1 .right-card-1-text-1 { font-size: clamp(1.2rem, 2.4cqw, 1.6rem); }
+  .section-3 .right-card-1 .right-card-1-text-2 { font-size: 1.2rem; padding-block: .8rem 1rem; }
+  .section-3 .right-card > a:first-child { display: block; width: 100%; flex: 1; min-height: 0; }
+  .section-3 .right-card > a:first-child img { object-fit: contain; }
+  .section-3 .right-card p { font-size: clamp(1.2rem, 2.4cqw, 1.6rem); padding-block: 1rem; }
+}
+
+}
+
+/* Catalog: same header, colors and 768 / 375 column changes as the main page. */
+@media (width < 769px) {
+  .sub_page_header { padding: 9rem 2rem 8rem; gap: 1.6rem; text-align: center; box-sizing: border-box; }
+  .sub_page_title { font-size: clamp(3.2rem, 7vw, 5.4rem); }
+  .sub_page_desc { font-size: clamp(1.4rem, 2.6vw, 2rem); }
+  .sub_page_bakery .tab_btn { padding: 1rem 1.6rem 0; }
+  .sub_page_bakery .tab_btn li { padding: 0; }
+  .sub_page_bakery .tab_btn li a { padding: 1.2rem 2rem; font-size: 1.6rem; white-space: nowrap; }
+  .sub_page_bakery .tab_btn li::before { width: 100%; height: 4.4rem; }
+  .product_container { padding: 6rem 2.4rem 8rem; margin-top: -2rem; }
+  .prod_wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem 2.4rem; }
+  .prod_wrap > div { min-width: 0; }
+  .product_desc { font-size: 1.4rem; line-height: 1.5; padding-top: 1.6rem; overflow-wrap: anywhere; }
+  .product_name { font-size: 1.6rem; line-height: 1.4; overflow-wrap: anywhere; }
+  .product_price { font-size: 2rem; padding-top: 1.2rem; }
+  .beverage_product_img_wrap, .bakery_product_img_wrap, .goods_product_img_wrap { border-radius: 2.4rem; overflow: hidden; }
+  .prod_wrap img { display: block; width: 100%; height: auto; }
+  .sub_prod ~ footer { padding: 3rem 2rem 4rem; gap: 2.4rem; border-radius: 4rem 4rem 0 0; text-align: center; }
+  .sub_prod ~ footer .footer-logo-box img { width: 14rem; height: auto; }
+  .sub_prod ~ footer .footer-middle-box { font-size: 1.2rem; }
+  .sub_prod ~ footer .footer-last-box p { font-size: 1.2rem; }
+}
+
+@media (width < 376px) {
+  .section-1-swiper { aspect-ratio: 375 / 657; }
+  .mobile-header .top-bar { top: 2.5rem; }
+  .mobile-header .promo-banner { height: 2.5rem; }
+  .mobile-header .promo-text span { font-size: 1rem; }
+  .mobile-header.is-promo-hidden .top-bar { top: 0; }
+  .section-3 .left-content { max-width: 37.5rem; aspect-ratio: 375 / 354; }
+  .prod_wrap { grid-template-columns: minmax(0, 1fr); }
+}
