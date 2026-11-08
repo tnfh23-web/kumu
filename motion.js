@@ -49,7 +49,7 @@
           else finish(target);
         }
       }
-    }, { rootMargin: subpage ? `0px 0px -${Math.min(180, Math.round(innerHeight * .18))}px` : "0px 0px -48px" });
+    }, { rootMargin: `0px 0px -${Math.min(180, innerHeight * .18)}px` });
 
     const batches = [];
     for (const [selector, parts] of sections) {
@@ -64,17 +64,15 @@
           const right = Math.min(innerWidth, frame?.right ?? innerWidth);
           return box.width && box.height && box.bottom > 0 && box.right > left + 1 && box.left < right - 1;
         });
-      if (subpage) targets.forEach(target => batches.push([target]));
-      else if (targets.length) batches.push(targets);
+      // Each item enters at its own position; later rows never play with the title.
+      targets.forEach((target, index) => batches.push({ target, order: subpage ? 0 : Math.min(index, 5) }));
     }
-    for (const targets of batches) {
-      targets.forEach((element, index) => {
-        element.style.setProperty("--kumu-entry-delay", `${Math.min(index, 5)}`);
-        element.dataset.kumuEntry = "pending";
-        prepared.add(element);
-      });
-      groups.set(targets[0], targets);
-      observer.observe(targets[0]);
+    for (const { target, order } of batches) {
+      target.style.setProperty("--kumu-entry-delay", `${order}`);
+      target.dataset.kumuEntry = "pending";
+      prepared.add(target);
+      groups.set(target, [target]);
+      observer.observe(target);
     }
 
     const onAnimationEnd = (event) => {
