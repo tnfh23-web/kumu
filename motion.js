@@ -162,29 +162,8 @@
 
   function mount(playEntries) {
     if (dispose) return;
-    let wheelDirection = 0, nativeWheelUntil = 0;
     const lenis = window.Lenis
-      ? new window.Lenis({
-          smoothWheel: true, lerp: 0.08, autoRaf: true, respectReducedMotion: false,
-          virtualScroll({ deltaX, deltaY, event }) {
-            if (event.type !== "wheel" || event.ctrlKey || Math.abs(deltaY) <= Math.abs(deltaX) || lenis.isStopped || lenis.isLocked) return true;
-            const direction = Math.sign(deltaY), now = performance.now();
-            const burstLimit = Math.max(600, innerHeight * .75);
-            const backlog = Math.abs(lenis.targetScroll - lenis.animatedScroll);
-            // Keep full wheel distance while letting the compositor handle intense bursts.
-            if (Math.abs(deltaY) > burstLimit || backlog > burstLimit || now < nativeWheelUntil) {
-              if (lenis.isScrolling === "smooth") lenis.scrollTo(lenis.scroll, { immediate: true });
-              nativeWheelUntil = now + 160;
-              wheelDirection = direction;
-              return false;
-            }
-            if (wheelDirection && direction !== wheelDirection && lenis.isScrolling === "smooth") {
-              lenis.scrollTo(lenis.scroll, { immediate: true });
-            }
-            wheelDirection = direction;
-            return true;
-          }
-        })
+      ? new window.Lenis({ smoothWheel: true, lerp: 0.08, autoRaf: true, respectReducedMotion: false })
       : null;
     const cleanupEntries = playEntries ? prepareEntries() : () => {};
     const cleanupLoops = pauseOffscreenLoops();
